@@ -1,6 +1,21 @@
 <a href="/collection">>>button to back</a>
 <div class="one-product-container">
-  {{#with product}}
-    {{> item_mini}}
-  {{/with}}
+        {{#with product}}
+        {{> item_mini}}
+
+        {{#unless this.reviews}}
+        <p>No reviews</p>
+        {{/unless}}
+
+        <ul>
+                {{#each this.reviews}}
+                <li>
+                        <p>{{this.rate}}</p>
+                        <p>{{this.comment}}</p>
+                </li>
+                {{/each}}
+        </ul>
+
+
+        {{/with}}
 </div>
