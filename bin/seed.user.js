@@ -1,6 +1,6 @@
 // Wants to insert many in the reinforcement-sesh database
 require("dotenv").config();
-require("./../configs/connect-db");
+require("./../configs/mongo");
 
 const UserModel = require("./../models/Product");
 
