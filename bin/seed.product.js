@@ -29,7 +29,7 @@ const beers = [
     name: "DIE BIO WEISSE ALKOHOLFREI",
     price: 5,
     quantity: 200, 
-    category: "Leger",
+    category: "Lager",
     description: `Our non-alcoholic wheat beer, brewed using sustainable organic raw materials, is the ideal thirst quencher after exercising and for regeneration. Rich in vitamins, isotonic, and gluten-free.
     A beer can be regarded as alcohol free if its alcohol content does not exceed 0.5%. The decision to drink an alcohol-free "WEISSE" does not come from the gut but from the brain - and more and more often!`,
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0001_alkoholfrei-05_370x.jpg?v=1596729185"
@@ -40,14 +40,14 @@ const beers = [
     quantity: 100,
     category: "Pilsner",
     description: "DIE WEISSE DUNKEL is produced from five different special types of malt. This beer has only a hint of hops on the nose, but is lively at the same time, with a firm head and a pronounced fruity note and a long malty finish.",
-    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186`,
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186",
   },
   {
-    name: "Die Weisse Bock,
+    name: "Die Weisse Bock",
     price: 5,
     quantity: 100,
     category: "Ale",
-    description: "DIE WEISSE BOCK has a nutty, sherry-like aroma, is bubbly while sipping it yet dry in the finish. To also be enjoyed as a special holiday drink during Christmas and Easter as well as a Maibock.",
+    description: "DIE WEISSE BOCK has a nutty, sherry-like aroma, is bubbly while sipping it yet dry in the finish. To also be enjoyed as a special holiday drink during Christmas and Easter as well as a Maibock",
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/2020-06-19_DieWeisse-11655_merged-bock-small_370x.jpg?v=1606899067",
   },
   {
