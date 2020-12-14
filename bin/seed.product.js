@@ -1,6 +1,6 @@
 // Wants to insert many in the reinforcement-sesh database
 require("dotenv").config();
-require("./../config/connect-db");
+require("./../configs/connect-db");
 
 const BeerModel = require("./../models/Product");
 
