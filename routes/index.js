@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ProductModel = require("./../models/Product");
+const BeerModel = require("./../models/Product");
 
 
 /* GET home page. */
@@ -11,7 +11,8 @@ router.get('/', (req, res, next) => {
 // GET products page to show all products
 router.get("/collection", async (req, res, next) => {
   try {
-    const products = await ProductModel.find();
+    const products = await BeerModel.find();
+    // console.log(products.length)
     res.render("dashboard/products", { products })
   } catch (err) {
     next(err)
@@ -20,11 +21,19 @@ router.get("/collection", async (req, res, next) => {
 
 //Get item page
 router.get("/collection/:id", async (req, res, next) => {
-  const product = await ProductModel.findById(req.params.id);
+  const product = await BeerModel.findById(req.params.id);
   res.render("one-product", { product })
 })
 
 module.exports = router;
 
 
+// router.get("/products-manage", async (req, res, next) => {
+//   try {
+//     const products = await BeerModel.find();
+//     res.render("dashboard/products-manage", { products });
+//   }catch(err){
+//     next(err)
+//   }
+// })
 

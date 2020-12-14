@@ -5,12 +5,12 @@ const UserSchema = new Schema({
 
     firstName: String,
     lastName: String,
-    isAdult: Boolean,
-    email: { type: String, unique: true },
+    isAdult: Boolean, 
+    email: {type: String, unique: true} ,
     address: {
-        streetNumber: Number,
-        street: String,
-        city: String,
+            streetNumber: Number,
+            street: String,
+            city: String,
         postcode: String,
         telephone: String
     },
@@ -18,9 +18,10 @@ const UserSchema = new Schema({
     role: { type: String, enum: ["user", "admin"], default: user },
     hashPassword: { type: string, require: true }
 },
-    { timestamps: true })
+{ timestamps: true })
 //gopgle map api with the auto fill the address 
 //8 lines code, there is a tutorial
 
 const UserModel = mongoose.model("user", UserSchema);
+
 module.exports = UserModel;

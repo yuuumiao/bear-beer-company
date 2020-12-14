@@ -1,0 +1,35 @@
+<td class="table-division">
+        <div><img src="{{this.image}}" alt="img" class="table-image" /></div>
+</td>
+<td class="table-division">
+        <div>{{this.name}}</div>
+</td>
+<td class="table-division">
+        <div>
+                {{this.category}}
+                <label for="category">Main category</label>
+                <section id="category" required name="category">
+                        <option value="-1" disabled selected>Choose a category</option>
+                        <option value="Pilsner">Pilsner</option>
+                        <option value="Dunkel">Dunkel</option>
+                        <option value="Ale">Ale</option>
+                        <option value="Lager">Lager</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Stout">Stout</option>
+                        <option value="Porter">Porter</option>
+                        <option value="Marzen">Marzen</option>
+                </section>
+        </div>
+</td>
+<td class="table-division">
+        <div>${{this.price}}</div>
+</td>
+<td class="table-division">
+        <div>${{this.description}}</div>
+</td>
+<td class="table-division">
+        <a href="/dashboard/product-edit/{{this._id}}" data-id-product="{{this._id}}">Edit</a>
+</td>
+<td class="table-division">
+        <a href="/dashboard/product-delete/{{this._id}}" data-id-product="{{this._id}}" aria-hidden="true">Delete</a>
+</td>
