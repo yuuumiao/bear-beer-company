@@ -64,9 +64,9 @@ const beers = [
 BeerModel.deleteMany()
   .then(async () => {
     // insert all robots
-    const insertedBots = await BeerModel.insertMany(beers);
+    const insertedBeers = await BeerModel.insertMany(beers);
     // print result
-    console.log(`ok : ${insertedBots.length} robots inserted`);
+    console.log(`ok : ${insertedBeers.length} beers inserted`);
   })
   .catch((err) => {
     console.log(err);
