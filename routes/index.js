@@ -3,7 +3,22 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
+// GET collection page to show all products
+router.get("/collection", function(req, res, next){
+//  await get here { products }
+res.render("collection")
+})
+
+//Get item page
+router.get("/collection/:id", function(req, res, next){
+  // await findbyid , render { product }
+  res.render("/item")
+})
+
 module.exports = router;
+
+
+

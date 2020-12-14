@@ -31,7 +31,7 @@ hbs.registerPartials(__dirname + "/views/partial");
 
 //routers
 app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/user', require('./routes/user'));
 app.use('/dashboard', require('./routes/dashboard'));
 
 // SESSION SETUP
