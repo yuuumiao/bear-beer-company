@@ -1,5 +1,5 @@
 <div class="big-container product-manage-wrapper flexed-item">
-    <form action="/dashboard/product-add" method="post" class="add-product-form">
+    <form action="/product-add" method="post" class="add-product-form">
         {{!-- <form action="/prod-add" method="post" class="add-product-form"> --}}
         <h3 class="form-title">Add bears to the collection</h3>
         <div class="form-item-wrapper flexed-item">
@@ -13,7 +13,7 @@
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="bear-price" class="label-price label">Price</label>
-            <input id="bear-price" type="number" class="bear-price input" value="123" name="price">
+            <input id="bear-price" type="number" class="bear-price input" value="5" name="price">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="bear-img" class="label-price label">Image</label>
@@ -40,13 +40,4 @@
         <button class="button-primary add-bear-btn">Add to collection</button>
     </form>
 
-    <div class="add-tag-form">
-        <p id="add-tag-message" class="msg"></p>
-        <h3 class="form-title">Add tags</h3>
-        <div class="form-item-wrapper flexed-item">
-            <label for="category-name" class="category-name label">bear tag</label>
-            <input id="new_tag_name" type="text" class="input" placeholder="ex: Gangsta">
-        </div>
-        <button id="btn_new_tag" class="button-primary add-category-btn">Create this category</button>
-    </div>
 </div>

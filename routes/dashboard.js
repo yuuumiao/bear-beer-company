@@ -1,5 +1,6 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const BeerModel = require("./../models/Product");
 
 // GET to show all the products
 router.get("/", (req, res, next) => {
@@ -7,8 +8,13 @@ router.get("/", (req, res, next) => {
 });
 
 // GET to manage all the products
-router.get("/products-manage", (req, res, next) => {
-  res.render("dashboard/products-manage");
+router.get("/products-manage", async (req, res, next) => {
+  try {
+    const products = await BeerModel.find();
+    res.render("dashboard/products-manage", { products });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET to add new the products

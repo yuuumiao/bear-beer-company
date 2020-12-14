@@ -3,13 +3,46 @@
         <aside>
                 <h4>All Categories</h4>
                 <ul id="category-list" data-category="">
-                        {{!-- all products have same category list in database --}}
-                        {{#each products.[0].category}}
-                        <li class="category-list-product">
-                                <input id="input_{{this}}" type="radio" class="checkbox" name="checkbox" />
-                                <label for="input_{{this}}">{{this}}</label>
+                        <li class="category-list-item">
+                                <input id="pilsner" type="radio" class="checkbox" name="checkbox" data-category="pilsner"/>
+                                <label for="pilsner">Pilsner</label>
                         </li>
-                        {{/each}}
+
+                        <li class="category-list-item">
+                                <input id="dunkel" type="radio" class="checkbox" name="checkbox" data-category="dunkel"/>
+                                <label for="dunkel">Dunkel</label>
+                        </li>
+
+                        <li class="category-list-item">
+                                <input id="ale" type="radio" class="checkbox" name="checkbox" data-category="ale"/>
+                                <label for="ale">Ale</label>
+                        </li>
+
+                        <li class="category-list-item">
+                                <input id="lager" type="radio" class="checkbox" name="checkbox" data-category="lager"/>
+                                <label for="lager">Lager</label>
+                        </li>
+
+                        <li class="category-list-item">
+                                <input id="wheat" type="radio" class="checkbox" name="checkbox" data-category="wheat"/>
+                                <label for="wheat">Wheat</label>
+                        </li>
+
+                        <li class="category-list-item">
+                                <input id="stout" type="radio" class="checkbox" name="checkbox" data-category="stout"/>
+                                <label for="stout">Stout</label>
+                        </li>
+
+
+                        <li class="category-list-item">
+                                <input id="porter" type="radio" class="checkbox" name="checkbox" data-category="porter" />
+                                <label for="porter">Porter</label>
+                        </li>
+
+                        <li class="category-list-item">
+                                <input id="marzen" type="radio" class="checkbox" name="checkbox" data-category="marzen"/>
+                                <label for="marzen">Marzen</label>
+                        </li>
                 </ul>
         </aside>
 
@@ -21,7 +54,7 @@
 
                 <div class="products_grid">
                         {{#each products}}
-                        {{ > item_mini}}
+                        {{> item_mini}}
                         {{/each}}
                 </div>
         </section>
