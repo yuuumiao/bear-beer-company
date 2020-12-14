@@ -1,65 +1,32 @@
-<<<<<<< HEAD
-<form method="post" action="/user/profile/{{user._id}}" class="form" enctype="multipart/form-data">
+{{!-- <form method="post" action="/user/profile/{{user._id}}" class="form" enctype="multipart/form-data"> --}}
+<form method="post" action="/user/profile/{{user._id}}" class="form">
     {{!-- here the action="/user/profile/:id" doesnt work--}}
     <h1>profile of User</h1>
     <label for="firstName" class="label">First Name</label>
-    <input id="firstName" type="text" class="input" value="{{user.firstName}}">
-=======
-{{!-- <form method="post" action="/user/profile/{{user._id}}" class="form" enctype="multipart/form-data"> --}}
-    <form method="post" action="/user/profile/{{user._id}}" class="form">
-        {{!-- here the action="/user/profile/:id" doesnt work--}}
-        <h1>profile of User</h1>
-        <label for="firstName" class="label">First Name</label>
-        <input id="firstName" type="text" class="input" value="{{user.firstName}}" name="firstName">
->>>>>>> abd6d590d0058af4fbd108eefccbb84f459d683a
+    <input id="firstName" type="text" class="input" value="{{user.firstName}}" name="firstName">
 
-        <label for="lastName" class="label">Last Name Name</label>
-        <input id="lastName" type="text" class="input" value="{{user.lastName}}" name="lastName">
+    <label for="lastName" class="label">Last Name Name</label>
+    <input id="lastName" type="text" class="input" value="{{user.lastName}}" name="lastName">
 
-        <label for="email" class="label">Email address</label>
-        <input id="email" type="email" class="input" value="{{user.email}}" name="email">
+    <label for="email" class="label">Email address</label>
+    <input id="email" type="email" class="input" value="{{user.email}}" name="email">
 
-<<<<<<< HEAD
-    <div id="address">
+    <label for="streetNumber" class="label">Street Number</label>
+    <input id="streetNumber" type="number" class="input" value="{{user.address.streetNumber}}" name="streetNumber">
 
-        <label for="streetNumber" class="label">Street Number</label>
-        <input id="streetNumber" type="number" class="input" value="{{user.address.streetNumber}}">
+    <label for="street" class="label">Street</label>
+    <input id="street" type="text" class="input" value="{{user.address.street}}" name="street">
 
-        <label for="street" class="label">Street</label>
-        <input id="street" type="text" class="input" value="{{user.address.street}}">
+    <label for="city" class="label">City</label>
+    <input id="city" type="text" class="input" value="{{user.address.city}}" name="city">
 
-        <label for="city" class="label">City</label>
-        <input id="city" type="text" class="input" value="{{user.address.city}}">
+    <label for="postcode" class="label">Postcode</label>
+    <input id="postcode" type="text" class="input" value="{{user.address.street}}" name="postcode">
 
-        <label for="state" class="label">state</label>
-        <input id="state" type="text" class="input" value="{{user.address.city}}">
+    <label for="telephone" class="label">telephone</label>
+    <input id="telephone" type="text" class="input" value="{{user.address.teleophone}}" name="telephone">
+
+    <button class="btn">Update my profile</button>
 
 
-        <label for="postcode" class="label">Postcode</label>
-        <input id="postcode" type="text" class="input" value="{{user.address.street}}">
-
-        <label for="telephone" class="label">telephone</label>
-        <input id="telephone" type="text" class="input" value="{{user.address.teleophone}}">
-
-    </div>
-=======
-        <label for="streetNumber" class="label">Street Number</label>
-        <input id="streetNumber" type="number" class="input" value="{{user.address.streetNumber}}" name="streetNumber">
-
-        <label for="street" class="label">Street</label>
-        <input id="street" type="text" class="input" value="{{user.address.street}}" name="street">
-
-        <label for="city" class="label">City</label>
-        <input id="city" type="text" class="input" value="{{user.address.city}}" name="city">
-
-        <label for="postcode" class="label">Postcode</label>
-        <input id="postcode" type="text" class="input" value="{{user.address.street}}" name="postcode">
-
-        <label for="telephone" class="label">telephone</label>
-        <input id="telephone" type="text" class="input" value="{{user.address.teleophone}}" name="telephone">
->>>>>>> abd6d590d0058af4fbd108eefccbb84f459d683a
-
-        <button class="btn">Update my profile</button>
-
-
-    </form>
+</form>
