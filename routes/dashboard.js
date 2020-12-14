@@ -7,8 +7,13 @@ router.get("/", (req, res, next) => {
 });
 
 // GET to manage all the products
-router.get("/products-manage", (req, res, next) => {
-  res.render("dashboard/products-manage");
+router.get("/products-manage", async (req, res, next) => {
+  try {
+    const products = await BeerModel.find();
+    res.render("dashboard/products-manage", { products });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET to add new the products
@@ -34,16 +39,6 @@ router.post("/product-edit/:id", (req, res, next) => {
 // GET to delete the product
 router.get("/delete/:id", (req, res, next) => {
   res.redirect("/dashboard");
-});
-
-// Get to manage the products
-router.get("/products-manage", async (req, res, next) => {
-  try {
-    const products = await BeerModel.find();
-    res.render("dashboard/products-manage", { products });
-  } catch (err) {
-    next(err);
-  }
 });
 
 module.exports = router;
