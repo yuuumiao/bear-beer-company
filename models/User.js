@@ -6,8 +6,8 @@ const UserSchema = new Schema({
     firstName: String, 
     lastName: String,
     isAdult: Boolean, 
-    Email: {type: String, unique: true} ,
-    Address: {
+    email: {type: String, unique: true} ,
+    address: {
             streetNumber: Number,
             streetName: String
             city: String,
