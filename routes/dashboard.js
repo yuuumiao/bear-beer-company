@@ -36,4 +36,14 @@ router.get("/delete/:id", (req, res, next) => {
   res.redirect("/dashboard");
 });
 
+// Get to manage the products
+router.get("/products-manage", async (req, res, next) => {
+  try {
+    const products = await BeerModel.find();
+    res.render("dashboard/products-manage", { products });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
