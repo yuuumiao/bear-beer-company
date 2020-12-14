@@ -6,10 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-// GET collection page to show all products
+// GET products page to show all products
 router.get("/collection", function(req, res, next){
 //  await get here { products }
-res.render("collection")
+res.render("products")
 })
 
 //Get item page
