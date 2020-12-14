@@ -1,4 +1,4 @@
-<form method="post" action="{{user._id}}" class="form" enctype="multipart/form-data">
+<form method="post" action="/user/profile/{{user._id}}" class="form" enctype="multipart/form-data">
     {{!-- here the action="/user/profile/:id" doesnt work--}}
     <h1>profile of User</h1>
     <label for="firstName" class="label">First Name</label>
@@ -10,20 +10,28 @@
     <label for="email" class="label">Email address</label>
     <input id="email" type="email" class="input" value="{{user.email}}">
 
-    <label for="streetNumber" class="label">Street Number</label>
-    <input id="streetNumber" type="number" class="input" value="{{user.address.streetNumber}}">
+    <div id="address">
 
-    <label for="street" class="label">Street</label>
-    <input id="street" type="text" class="input" value="{{user.address.street}}">
+        <label for="streetNumber" class="label">Street Number</label>
+        <input id="streetNumber" type="number" class="input" value="{{user.address.streetNumber}}">
 
-    <label for="city" class="label">City</label>
-    <input id="city" type="text" class="input" value="{{user.address.city}}">
+        <label for="street" class="label">Street</label>
+        <input id="street" type="text" class="input" value="{{user.address.street}}">
 
-    <label for="postcode" class="label">Postcode</label>
-    <input id="postcode" type="text" class="input" value="{{user.address.street}}">
+        <label for="city" class="label">City</label>
+        <input id="city" type="text" class="input" value="{{user.address.city}}">
 
-    <label for="telephone" class="label">telephone</label>
-    <input id="telephone" type="text" class="input" value="{{user.address.teleophone}}">
+        <label for="state" class="label">state</label>
+        <input id="state" type="text" class="input" value="{{user.address.city}}">
+
+
+        <label for="postcode" class="label">Postcode</label>
+        <input id="postcode" type="text" class="input" value="{{user.address.street}}">
+
+        <label for="telephone" class="label">telephone</label>
+        <input id="telephone" type="text" class="input" value="{{user.address.teleophone}}">
+
+    </div>
 
     <button class="btn">Update my profile</button>
 

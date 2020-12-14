@@ -5,17 +5,13 @@ const UserSchema = new Schema({
 
     firstName: String,
     lastName: String,
-<<<<<<< HEAD
     isAdult: {type: Boolean, default: true},
     email: { type: String, unique: true },
-=======
-    isAdult: Boolean, 
-    email: {type: String, unique: true} ,
->>>>>>> a7ec6fd93822fd897bd334cebb38aeb473121686
     address: {
             streetNumber: Number,
             street: String,
             city: String,
+            state: String,
         postcode: String,
         telephone: String
     },
