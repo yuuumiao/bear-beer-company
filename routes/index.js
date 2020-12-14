@@ -28,12 +28,3 @@ router.get("/collection/:id", async (req, res, next) => {
 module.exports = router;
 
 
-// router.get("/products-manage", async (req, res, next) => {
-//   try {
-//     const products = await BeerModel.find();
-//     res.render("dashboard/products-manage", { products });
-//   }catch(err){
-//     next(err)
-//   }
-// })
-
