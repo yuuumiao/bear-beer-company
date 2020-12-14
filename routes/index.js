@@ -1,21 +1,27 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const ProductModel = require("./../models/Product");
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.render('index');
 });
 
 // GET products page to show all products
-router.get("/collection", function(req, res, next){
-//  await get here { products }
-res.render("dashboard/products")
-})
+router.get("/collection", async (req, res, next) => {
+  try {
+    const products = await ProductModel.find();
+    res.render("dashboard/products", { products })
+  } catch (err) {
+    next(err)
+  }
+});
 
 //Get item page
-router.get("/collection/:id", function(req, res, next){
-  // await findbyid , render { product }
-  res.render("item")
+router.get("/collection/:id", async (req, res, next) => {
+  const product = await ProductModel.findById(req.params.id);
+  res.render("one-product", { product })
 })
 
 module.exports = router;

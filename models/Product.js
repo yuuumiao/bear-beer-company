@@ -9,11 +9,11 @@ const BeerSchema = new Schema({
             category: {type: String, enum: ["Pilsner","Dunkel", "Ale", "Lager", "Wheat", "Stout", "Porter", "Marzen"]},
             description:  { type: String, required: true, trim:true },
             image: { type: String, default: "https://via.placeholder.com/300"},
-            reviews: {
+            reviews: [{
                     userId: { type: Schema.Types.ObjectId, ref: "user"},
-                    rate: [Number],
-                    comment: [String]
-            }
+                    rate: Number,
+                    comment: String
+            }]
 })
 const BeerModel = mongoose.model("beer", BeerSchema);
 

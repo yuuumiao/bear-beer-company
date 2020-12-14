@@ -1,1 +1,28 @@
-<h1>products</h1>
+<div>
+        {{!-- Category --}}
+        <aside>
+                <h4>All Categories</h4>
+                <ul id="category-list" data-category="">
+                        {{!-- all products have same category list in database --}}
+                        {{#each products.[0].category}}
+                        <li class="category-list-product">
+                                <input id="input_{{this}}" type="radio" class="checkbox" name="checkbox" />
+                                <label for="input_{{this}}">{{this}}</label>
+                        </li>
+                        {{/each}}
+                </ul>
+        </aside>
+
+        {{!-- PRODUCTS --}}
+        <section class="products-wrapper">
+                {{#unless products}}
+                <p>Sorry, no products yet !</p>
+                {{/unless}}
+
+                <div class="products_grid">
+                        {{#each products}}
+                        {{ > item_mini}}
+                        {{/each}}
+                </div>
+        </section>
+</div>
