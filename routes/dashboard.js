@@ -3,17 +3,17 @@ var router = express.Router();
 
 // GET to show all the products
 router.get("/", (req, res, next) => {
-  res.render("/dashboard/products");
+  res.render("dashboard/products");
 });
 
 // GET to manage all the products
 router.get("/products-manage", (req, res, next) => {
-  res.render("/dashboard/products-manage");
+  res.render("dashboard/products-manage");
 });
 
 // GET to add new the products
 router.get("/product-add", (req, res, next) => {
-  res.render("/dashboard/product-add");
+  res.render("dashboard/product-add");
 });
 
 // GET to post products
@@ -23,7 +23,7 @@ router.post("/product-add", (req, res, next) => {
 
 // GET to edit the products
 router.get("/product-edit/:id", (req, res, next) => {
-  res.render("/dashboard/product-edit");
+  res.render("dashboard/product-edit");
 });
 
 // GET to post the edit products
