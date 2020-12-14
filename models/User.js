@@ -5,7 +5,7 @@ const UserSchema = new Schema({
 
     firstName: String,
     lastName: String,
-    isAdult: Boolean,
+    isAdult: {type: Boolean, default: true},
     email: { type: String, unique: true },
     address: {
         streetNumber: Number,
@@ -15,8 +15,8 @@ const UserSchema = new Schema({
         telephone: String
     },
     wishlists: [{ type: Schema.Types.ObjectId, ref: "products" }],
-    role: { type: String, enum: ["user", "admin"], default: user },
-    hashPassword: { type: string, require: true }
+    role: { type: String, enum: ["user", "admin"], default: "user" },
+    hashPassword: { type: String } //require: true
 },
     { timestamps: true })
 //gopgle map api with the auto fill the address 
