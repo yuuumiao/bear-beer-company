@@ -9,7 +9,7 @@ const UserSchema = new Schema({
     email: {type: String, unique: true} ,
     address: {
             streetNumber: Number,
-            streetName: String
+            street: String,
             city: String,
             postcode: String,
             telephone: String
@@ -19,6 +19,7 @@ const UserSchema = new Schema({
     hashPassword: {type:string, require: true}    
 },
 { timestamps: true })
-
+//gopgle map api with the auto fill the address 
+//8 lines code, there is a tutorial
 const UserModel = mongoose.model("user", BeerSchema);
 module.exports = UserModel;

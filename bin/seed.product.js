@@ -6,54 +6,65 @@ const BeerModel = require("./../models/Product");
 
 const beers = [
   {
-    chip: "XB-ALPHA-QUATRON",
-    name: "B0B",
-    price: 1000000,
-    speechEnabled: true,
-    features: ["GPS", "close combat", "flight"],
+    name: "DIE WEISSE HELL",
+    price: 5,
+    quantity: 100,
+    category: "Pilsner",
+    description: `"DIE WEISSE HELL" is a naturally cloudy wheat beer, comes in a swing top bottle, and has been double fermented (bottle conditioning).
+    This amber-colored wheat beer is brewed from three different Austrian malts.
+    Our own top-fermenting yeast gives the "WEISSE HELL" a gentle fruity note and a frothy head. Hallertau hops gives it the necessary bitterness.`,
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186",
   },
   {
-    chip: "QRR-3X",
-    name: "Jane",
-    price: 200,
-    speechEnabled: false,
-    features: ["nice colors"],
+    name: "DIE BIO WEISSE HELL GLUTENFREI",
+    price: 5,
+    quantity: 100,
+    category: "Dunkel",
+    description: `DIE WEISSE HELL" is a naturally cloudy wheat beer, comes in a swing top bottle, and has been double fermented (bottle conditioning).
+    This amber-colored wheat beer is brewed from three different Austrian malts.
+    Our own top-fermenting yeast gives the "WEISSE HELL" a gentle fruity note and a frothy head. Hallertau hops gives it the necessary bitterness.`,
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0003_Glutenfrei-05_370x.jpg?v=1596729171"
   },
   {
-    chip: "XB-ALPHA-QUATRON",
-    name: "JACK",
-    price: 1000000,
-    speechEnabled: false,
-    features: ["GPS"],
+    name: "DIE BIO WEISSE ALKOHOLFREI",
+    price: 5,
+    quantity: 200, 
+    category: "Leger",
+    description: `Our non-alcoholic wheat beer, brewed using sustainable organic raw materials, is the ideal thirst quencher after exercising and for regeneration. Rich in vitamins, isotonic, and gluten-free.
+    A beer can be regarded as alcohol free if its alcohol content does not exceed 0.5%. The decision to drink an alcohol-free "WEISSE" does not come from the gut but from the brain - and more and more often!`,
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0001_alkoholfrei-05_370x.jpg?v=1596729185"
   },
   {
-    chip: "XB-ALPHA-B2",
-    name: "terminator",
-    price: 1000,
-    speechEnabled: true,
-    features: ["berzerk instinct"],
+    name: "Die Weisse Dunkel",
+    price: 5,
+    quantity: 100,
+    category: "Pilsner",
+    description: "DIE WEISSE DUNKEL is produced from five different special types of malt. This beer has only a hint of hops on the nose, but is lively at the same time, with a firm head and a pronounced fruity note and a long malty finish.",
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186`,
   },
   {
-    chip: "01010101",
-    name: "r2d2",
-    price: 100000,
-    speechEnabled: false,
-    features: ["bleep lang", "fight flight assistant"],
+    name: "Die Weisse Bock,
+    price: 5,
+    quantity: 100,
+    category: "Ale",
+    description: "DIE WEISSE BOCK has a nutty, sherry-like aroma, is bubbly while sipping it yet dry in the finish. To also be enjoyed as a special holiday drink during Christmas and Easter as well as a Maibock.",
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/2020-06-19_DieWeisse-11655_merged-bock-small_370x.jpg?v=1606899067",
   },
   {
-    chip: "XCORE-REACT-ALPHA",
-    name: "B-22",
-    price: 1000000,
-    speechEnabled: false,
-    features: ["typo", "interpret", "diplomat", "cook"],
-  },
+    name: "Salzburger hell",
+    price: 5,
+    quantity: 400, 
+    category: "Wheat",
+    description: "",
+    image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/webfinal032020-08-28_SALZBURGER-Hell-0_33-916x1200Kopie_370x.png?v=1600761980"
+  }
 ];
 
 // empty the db
 RobotModel.deleteMany()
   .then(async () => {
     // insert all robots
-    const insertedBots = await RobotModel.insertMany(robots);
+    const insertedBots = await BeerModel.insertMany(beers);
     // print result
     console.log(`ok : ${insertedBots.length} robots inserted`);
   })
