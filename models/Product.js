@@ -8,7 +8,7 @@ const BeerSchema = new Schema({
             quantity: { type: Number, required: true},
             category: {type: String, enum: ["Pilsner","Dunkel", "Ale", "Lager", "Wheat", "Stout", "Porter", "Marzen"]},
             description:  { type: String, required: true, trim:true },
-            Image: { type: String, default: "https://via.placeholder.com/300"},
+            image: { type: String, default: "https://via.placeholder.com/300"},
             reviews: {
                     userId: { type: Schema.Types.ObjectId, ref: "user"},
                     rate: [Number],
