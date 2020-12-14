@@ -9,13 +9,13 @@ router.get('/', function(req, res, next) {
 // GET products page to show all products
 router.get("/collection", function(req, res, next){
 //  await get here { products }
-res.render("products")
+res.render("dashboard/products")
 })
 
 //Get item page
 router.get("/collection/:id", function(req, res, next){
   // await findbyid , render { product }
-  res.render("/item")
+  res.render("item")
 })
 
 module.exports = router;
