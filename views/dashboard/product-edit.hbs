@@ -1,3 +1,36 @@
-<h1>
-    Get all the infos from the database and load it
-</h1>
+<div class="big-container product-manage-wrapper flexed-item">
+    <form method="post" action="/dashboard/product-edit" class="edit-product-form">
+        <h3 class="form-title"> Edit Bears</h3>
+        <div class="form-item-wrapper flexed-item">
+            <label for="bear-name" class="label-name label">Bear name</label>
+            <input id="bear-name" type="text" class="input-text input" name="name">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="sneaker-descr" class="label-descr label">Description</label>
+            <input id="bear-descr" type="text" class="input-text input" name="description">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="bear-price" class="label-price label">Price</label>
+            <input id="bear-price" type="number" class="bear-price input">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="bear-main-cat" class="label-main-cat label">Main category</label>
+            <select id="main_category" class="select" required name="category">
+                <option value="-1" disabled selected>Choose main Category...</option>
+                <option value="Pilsner">Pilsner</option>
+                <option value="Dunkel">Dunkel</option>
+                <option value="Ale">Ale</option>
+                <option value="Lager">Lager</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Stout">Stout</option>
+                <option value="Porter">Porter</option>
+                <option value="Porter">Porter</option>
+            </select>
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label class="label">Tags</label>
+
+        </div>
+        <button class="button-primary add-sneaker-btn">Edit this bear</button>
+    </form>
+</div>
