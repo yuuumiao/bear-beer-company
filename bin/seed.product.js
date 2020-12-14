@@ -61,7 +61,7 @@ const beers = [
 ];
 
 // empty the db
-RobotModel.deleteMany()
+BeerModel.deleteMany()
   .then(async () => {
     // insert all robots
     const insertedBots = await BeerModel.insertMany(beers);
