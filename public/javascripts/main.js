@@ -19,22 +19,39 @@ for (let i = 0; i < seeMoreList.length; i++) {
         })
 }
 
-
-
-
+//filter by category
 
 
 function displayProdGrid(products) {
         const productsGrid = document.getElementById("products_grid");
-        console.log(products);
+        productsGrid.innerHTML = '';
+        for (let i = 0; i < products.length; i++) {
+                productsGrid.innerHTML += `
+<a href="/collection/{{_id}}" class="product-item-wrapper">
+        <div class="product-img">
+                <img src="{{image}}" alt="{{this.name}}">
+        </div>
+        <div class="product-info">
+                <p class="product-name">{{name}}</p>
+                <p class="product-cat">Category: {{category}}</p>
+                <p class="product-price">Price: ${{ price }}</p>
+        </div>
+
+        <p class="product-description">{{description}}</p>
+
+</a>
+`
+        }
+
 }
 
 categoryList.forEach(category => {
         category.addEventListener('click', async () => {
                 const chosenCategory = category.getAttribute("data-category")
                 // console.log(chosenCategory);
-                const getProducts = await axios.get(`/filter/${chosenCategory}`);
+                const getProducts = await axios.get(`/api/manage/filter/${chosenCategory}`);
                 const products = getProducts.data;
+                console.log(products)
 
                 displayProdGrid(products);
         })
