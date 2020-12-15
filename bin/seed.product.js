@@ -16,8 +16,8 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
-        rate: 4,
+        userId: "5fd91f5eaea1cc3da76199d5",
+        rate: 4.7,
         comment: "one hell of a good beer"
       }
     ]
@@ -33,8 +33,8 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0003_Glutenfrei-05_370x.jpg?v=1596729171",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
-        rate: 5,
+        userId: "5fd91f5eaea1cc3da76199d5",
+        rate: 4.6,
         comment: "one hell of a good beer"
       }
 
@@ -50,7 +50,7 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0001_alkoholfrei-05_370x.jpg?v=1596729185",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
+        userId: "5fd91f5eaea1cc3da76199d5",
         rate: 4,
         comment: "one hell of a good beer"
       }
@@ -65,12 +65,12 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/die-weisse-bier-_0004_Hell-05_370x.jpg?v=1596729186",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
+        userId: "5fd91f5eaea1cc3da76199d5",
         rate: 4,
         comment: "one hell of a good beer"
       },
       {
-        userId: "5fd8d465c6a8d76eb5eaaa16",
+        userId: "5fd91f5eaea1cc3da76199d6",
         rate: 2,
         comment: "one hell of a good beer"
       },
@@ -85,17 +85,17 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/2020-06-19_DieWeisse-11655_merged-bock-small_370x.jpg?v=1606899067",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
+        userId: "5fd91f5eaea1cc3da76199d5",
         rate: 4,
         comment: "one hell of a good beer"
       },
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
+        userId: "5fd91f5eaea1cc3da76199d6",
         rate: 2,
         comment: "one hell of a good beer"
       },
       {
-        userId: "5fd8d465c6a8d76eb5eaaa16",
+        userId: "5fd91f5eaea1cc3da76199d6",
         rate: 2,
         comment: "one hell of a good beer"
       },
@@ -110,12 +110,12 @@ const beers = [
     image: "https://cdn.shopify.com/s/files/1/0451/3461/0595/products/webfinal032020-08-28_SALZBURGER-Hell-0_33-916x1200Kopie_370x.png?v=1600761980",
     reviews: [
       {
-        userId: "5fd8d465c6a8d76eb5eaaa15",
+        userId: "5fd91f5eaea1cc3da76199d5",
         rate: 4.5,
         comment: "one hell of a good beer"
       },
       {
-        userId: "5fd8d465c6a8d76eb5eaaa16",
+        userId: "5fd91f5eaea1cc3da76199d6",
         rate: 2,
         comment: "one hell of a good beer"
       },

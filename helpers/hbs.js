@@ -8,12 +8,26 @@ hbs.registerHelper('trimString', function (passedString, startstring, endstring)
 
 
 hbs.registerHelper("stars", function (value) {
-        // console.log(value)
-        // return "<h1>Hello people</h1>"
         const unit = Math.floor(value);
         const demical = value - unit;
-        let starsArr = '';
-        for(let i=0; i < unit.length; i++){
-                
-        }
+        let array = ''
+
+       for(let i=0; i<unit; i++){
+        array +=`<img src="/images/full-star.png" width="10px">`;
+       }
+       if(demical>0.5) array+=`<img src="/images/half-star.png" width="10px">`;
+       return array;
+        
+})
+
+hbs.registerHelper("average", function(arrayReviews){
+        let sum = 0;
+        let count = 0;
+        arrayReviews.forEach(review =>{
+                if(review.rate){
+                        sum+=review.rate;
+                        count+=1
+                }
+        })
+        return +(sum/count).toFixed(1)
 })
