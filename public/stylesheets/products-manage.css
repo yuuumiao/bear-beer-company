@@ -1,7 +1,10 @@
 .manage-products-wrapper {
-  padding: 2rem 1.2rem;
-  height: calc(100vh - (84px));
+  padding: 2rem 0rem;
+  /* height: calc(100vh - (84px)); */
+  /* height: 50vh; */
   flex-direction: column;
+
+  position: relative;
 }
 
 h3.manage-products-title {
@@ -11,11 +14,34 @@ h3.manage-products-title {
   font-size: 1.2rem;
   height: 49px;
 }
-
+.manage-products-wrapper-table{
+  overflow-y: auto;
+  height:500px;
+}
 .product-manage-table {
   border: 1px solid;
-  width: 80%;
+  width: 90%;
+  height: 100%;
+  /* overflow: auto; */
 }
+/* .table-head{
+  border-bottom: 1px solid #eee;
+  background: #ddd;
+  padding: 10px 25px;
+  color: transparent;
+  border: none;
+  white-space: nowrap;
+} */
+/* .table-head p{
+  position: absolute;
+  background: transparent;
+  color: #fff;
+  padding: 9px 25px;
+  top: 0;
+  margin-left: -25px;
+  line-height: normal;
+  border-left: 1px solid #800;
+} */
 
 .table-row {
   display: flex;
@@ -36,7 +62,10 @@ h3.manage-products-title {
   padding: 1rem;
   text-align: left;
   font-weight: 600;
+
+  /* position: absolute; */
 }
+
 
 .table-icon:hover {
   cursor: pointer;

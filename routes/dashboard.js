@@ -7,14 +7,14 @@ const fileUploader = require("./../configs/cloudinary")
 // GET to show all the products
 router.get("/", async (req, res, next) => {
   const products = await BeerModel.find();
-  res.render("dashboard/products", { products });
+  res.render("dashboard/products", { products, scripts: ["products"] });
 });
 
 // GET to manage all the products
 router.get("/products-manage", async (req, res, next) => {
   try {
     const products = await BeerModel.find();
-    res.render("dashboard/products-manage", { products });
+    res.render("dashboard/products-manage", { products, scripts: ["products-manage"] });
   } catch (err) {
     next(err);
   }
@@ -45,6 +45,7 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
 // GET to edit the products
 router.get("/product-edit/:id", async (req, res, next) => {
   const product = await BeerModel.findById(req.params.id);
+  console.log(product)
   res.render("dashboard/product-edit", { product });
 });
 

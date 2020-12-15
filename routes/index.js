@@ -12,9 +12,8 @@ router.get('/', (req, res, next) => {
 // GET products page to show all products
 router.get("/collection", async (req, res, next) => {
   try {
-    const getProducts = await BeerModel.find()
-    const products = getProducts .sort((x, y) => +new Date(x.updatedAt) - +new Date(y.updatedAt));
-    res.render("dashboard/products", { products })
+    const products = await BeerModel.find();
+    res.render("dashboard/products", { products, scripts: ["products"] })
   } catch (err) {
     next(err)
   }

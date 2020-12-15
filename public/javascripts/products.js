@@ -1,4 +1,4 @@
-const seeMoreList = document.querySelectorAll(".see-more");
+
 const categoryList = document.querySelectorAll(".category-list-item input");
 const priceList = document.querySelectorAll(".price-list-item input");
 const sortLowToHigh = document.querySelector(".low-high-price");
@@ -6,25 +6,8 @@ const sortHighToLow = document.querySelector(".high-low-price");
 const searchInput = document.querySelector("#search input");
 const searchBtn = document.querySelector("#search a");
 const matchList = document.getElementById("match-list");
-let isSeeMore = false;
 
 
-//handle 'see more' button: show description
-for (let i = 0; i < seeMoreList.length; i++) {
-        seeMoreList[i].addEventListener('click', () => {
-                const fullDescriptionCell = document.querySelectorAll('.description-cell .full');
-                const lessDescriptionCell = document.querySelectorAll('.description-cell .less');
-                isSeeMore = !isSeeMore;
-                if (isSeeMore) {
-                        fullDescriptionCell[i].style.display = "block";
-                        lessDescriptionCell[i].style.display = "none";
-                } else {
-                        fullDescriptionCell[i].style.display = "none";
-                        lessDescriptionCell[i].style.display = "block";
-                }
-
-        })
-}
 
 //filter by category
 

@@ -1,33 +1,53 @@
 <div class="manage-products-wrapper">
     <h3 class="manage-products-title">Manage your products catalog</h3>
+    <div class="manage-products-wrapper-table">
+        <table class="product-manage-table">
+            <thead>
+                <tr class="table-row">
+                    <th class="table-head">
+                        <p>Product Image</p>
+                    </th>
+                    <th class="table-head">
+                        <p>Product Name</p>
+                    </th>
+                    <th class="table-head">
+                        <p>Product Category</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Product Price</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Product Quantity</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Product Description</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Product Reviews</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Edit</p> 
+                    </th>
+                    <th class="table-head">
+                        <p>Delete</p> 
+                    </th>
+                </tr>
+            </thead>
 
-    <table class="product-manage-table">
-        <thead>
-            <tr class="table-row">
-                <th class="table-head">Product Image</th>
-                <th class="table-head">Product Name</th>
-                <th class="table-head">Product Category</th>
-                <th class="table-head">Product Price</th>
-                <th class="table-head">Product Quantity</th>
-                <th class="table-head">Product Description</th>
-                <th class="table-head">Product Reviews</th>
-                <th class="table-head">Edit</th>
-                <th class="table-head">Delete</th>
-            </tr>
-        </thead>
+            <tbody>
+                {{#each products}}
+                <tr class="table-row">
+                    {{> dashboard_product_row}}
+                </tr>
+                {{/each}}
 
-        <tbody>
-            {{#each products}}
-            <tr class="table-row">
-                {{> dashboard_product_row}}
-            </tr>
-            {{/each}}
+                {{#unless products}}
+                <tr>
+                    <td colspan="9">sorry no sneakers yet</td>
+                </tr>
+                {{/unless}}
+            </tbody>
+        </table>
+    </div>
 
-            {{#unless products}}
-            <tr>
-                <td colspan="9">sorry no sneakers yet</td>
-            </tr>
-            {{/unless}}
-        </tbody>
-    </table>
 </div>
