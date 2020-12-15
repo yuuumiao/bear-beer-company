@@ -34,6 +34,8 @@ app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/api/manage', require('./routes/api/api.manage'));
+app.use('/auth', require('./routes/auth'));
+
 
 // SESSION SETUP
 app.use(
@@ -48,6 +50,10 @@ app.use(
     resave: true,
   })
 );
+
+
+
+
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
 app.locals.site_url = process.env.SITE_URL;
