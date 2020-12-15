@@ -8,7 +8,6 @@
 
 
 
-
 let placeSearch;
 let autocomplete;
 const componentForm = {
@@ -37,9 +36,17 @@ function initAutocomplete() {
   autocomplete.addListener("place_changed", fillInAddress);
 }
 
+initAutocomplete();
+
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   const place = autocomplete.getPlace();
+
+  console.log(place);
+
+  // const toto  ={
+  //   streetNunber: place[0].short_na
+  // }
 
   for (const component in componentForm) {
     document.getElementById(component).value = "";
