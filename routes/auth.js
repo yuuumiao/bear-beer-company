@@ -38,15 +38,19 @@ router.post('/signup', (req, res, next) => {
 //////////// L O G I N ///////////
 
 // .get() route ==> to display the login form to users
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login', (req, res) => {res.render('auth/login')});
 
 // .post() login route ==> to process form data
 router.post('/login', (req, res, next) => {
+
+  // console.log('SESSION ', req.session);
+
+
   const { email, password } = req.body;
  
   if (email === '' || password === '') {
     res.render('auth/login', {
-      errorMessage: 'Please enter both, email and password to login.'
+      message: 'Please enter both, email and password to login.'
     });
     return;
   }
@@ -54,14 +58,19 @@ router.post('/login', (req, res, next) => {
   UserModel.findOne({ email })
     .then(user => {
       if (!user) {
-        res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
+        res.render('auth/login', { message: 'Email is not registered. Try with other email.' });
         return;
       } else if (bcrypt.compareSync(password, user.passwordHash)) {  
-        console.log("passed", user);
+
+        /////   SAVE THE USER IN THE SESSION //////
+        req.session.currentUser = user;
+        console.log('SESSION => ', req.session);
+        console.log(req.session.currentUser);
         res.render('profile', { user });
-        // res.redirect("/")
+
+        
       } else {
-        res.render('auth/login', { errorMessage: 'Incorrect password.' });
+        res.render('auth/login', { message: 'Incorrect password.' });
       }
     })
     .catch(error => next(error));
@@ -69,15 +78,16 @@ router.post('/login', (req, res, next) => {
  
 
 
-
  //////////// S I G N O U T ///////////
+
+router.get("/logout", async (req, res) => {
  
-router.get("/signout", async (req, res, next) => {
-  req.session.destroy(function (err) {
+    console.log("logout", req.session.currentUser);
+    req.session.destroy();
     // cannot access session here
-    // console.log(req.session.currentUser);
-    res.redirect("/auth/login");
-  });
+    // console.log("logout2", req.session.currentUser);
+    res.redirect('/');
+
 });
 
 module.exports = router;

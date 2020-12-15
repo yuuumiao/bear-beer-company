@@ -29,15 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials(__dirname + "/views/partial");
 
-//routers
-app.use('/', require('./routes/index'));
-app.use('/user', require('./routes/user'));
-app.use('/dashboard', require('./routes/dashboard'));
-app.use('/api/manage', require('./routes/api/api.manage'));
-app.use('/auth', require('./routes/auth'));
-
 
 // SESSION SETUP
+// The session setup needs to come before the app.use otherwise it wont work in my case
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -51,8 +45,19 @@ app.use(
   })
 );
 
+
+//routers
+app.use('/', require('./routes/index'));
+app.use('/user', require('./routes/user'));
+app.use('/dashboard', require('./routes/dashboard'));
+app.use('/api/manage', require('./routes/api/api.manage'));
+app.use('/auth', require('./routes/auth'));
+
+
+
+
 // expose login status to the hbs templates
-app.use(require("./middlewares/exposeLoginStatus"));
+// app.use(require("./middlewares/exposeLoginStatus"));
 
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
