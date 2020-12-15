@@ -29,5 +29,6 @@ hbs.registerHelper("average", function(arrayReviews){
                         count+=1
                 }
         })
-        return +(sum/count).toFixed(1)
+        if(sum===0) return `No reviews`
+        else return +(sum/count).toFixed(1)
 })
