@@ -141,3 +141,6 @@ searchInput.addEventListener('input', async () => {
                 displayProdGrid(products)
         };
 });
+
+
+//start

@@ -31,22 +31,5 @@ router.get("/filter/price/:smallestPrice/:largestPrice", async (req, res, next) 
         }
 
 });
-// router.get("/filter/lowtohighprice", async (req, res, next) => {
-//         try {
-//                 res.json(await BeerModel.find().sort(function (a, b) {
-//                         return a.price - b.price;
-//                 }));
-//         } catch (err) {
-//                 next(err)
-//         }
-// })
-// router.get("/filter/hightolowprice", async (req, res, next) => {
-//         try {
-//                 res.json(await BeerModel.find().sort(function (a, b) {
-//                         return -a.price + b.price;
-//                 }));
-//         } catch (err) {
-//                 next(err)
-//         }
-// })
+
 module.exports = router;

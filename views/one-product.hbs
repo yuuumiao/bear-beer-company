@@ -10,8 +10,14 @@
         <ul>
                 {{#each this.reviews}}
                 <li>
-                        <p>{{this.rate}}</p>
-                        <p>{{this.comment}}</p>
+                        <p>Rates:
+                                {{!-- {{#with this.rate}} --}}
+
+                                {{{stars this.rate}}}
+                                {{> rate}}
+                                {{!-- {{/with}} --}}
+                                {{this.rate}}</p>
+                        <p>-- {{this.comment}}</p>
                 </li>
                 {{/each}}
         </ul>
