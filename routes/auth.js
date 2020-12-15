@@ -37,8 +37,16 @@ router.post('/signup', (req, res, next) => {
 
 //////////// L O G I N ///////////
 
+router.get("/profile", (req,res,next) => {
+  //
+  res.render('profile', {user : req.session.currentUser, scripts: ["address"]})
+})
+
 // .get() route ==> to display the login form to users
-router.get('/login', (req, res) => {res.render('auth/login')});
+router.get('/login',  (req, res) => {
+  //
+  res.render('auth/login')
+});
 
 // .post() login route ==> to process form data
 router.post('/login', (req, res, next) => {
@@ -66,7 +74,8 @@ router.post('/login', (req, res, next) => {
         req.session.currentUser = user;
         console.log('SESSION => ', req.session);
         console.log(req.session.currentUser);
-        res.render('profile', { user });
+        res.redirect("/auth/profile")
+        //res.render('profile', { user });
 
         
       } else {
