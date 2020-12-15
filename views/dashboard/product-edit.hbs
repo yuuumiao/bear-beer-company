@@ -3,15 +3,15 @@
         <h3 class="form-title"> Edit Bears</h3>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-name" class="label-name label">Beer name</label>
-            <input id="beer-name" type="text" class="input-text input" name="name">
+            <input id="beer-name" type="text" value="{{beer.name}}" class="input-text input" name="name">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-descr" class="label-descr label">Description</label>
-            <input id="beer-descr" type="text" class="input-text input" name="description">
+            <input id="beer-descr" type="text" value="{{beer.descr}}" class="input-text input" name="description">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-price" class="label-price label">Price</label>
-            <input id="beer-price" type="number" class="beer-price input">
+            <input id="beer-price" type="number" value="{{beer.price}}" class="beer-price input">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-main-cat" class="label-main-cat label">Main category</label>

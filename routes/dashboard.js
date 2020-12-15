@@ -67,7 +67,7 @@ router.get("/product-delete/:id", async (req, res, next) => {
   try {
     console.log("beeer");
     await BeerModel.findByIdAndRemove(req.params.id);
-    res.redirect("/dashboard");
+    res.redirect("/dashboard/products-manage");
   } catch (err) {
     next(err);
   }
