@@ -1,33 +1,46 @@
 <div class="big-container product-manage-wrapper flexed-item">
-    <form method="post" action="/dashboard/product-edit/{{beer._id}}" class="edit-product-form">
-        <h3 class="form-title"> Edit Bears</h3>
+    <form action="/dashboard/product-edit/{{this._id}}" method="post" class="add-product-form" enctype="multipart/form-data">
+        <h3 class="form-title">Edit details of beer</h3>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-name" class="label-name label">Beer name</label>
-            <input id="beer-name" type="text" value="{{beer.name}}" class="input-text input" name="name">
+            <input id="beer-name" type="text" value="{{product.name}}" class="input-text input" name="name" required>
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-descr" class="label-descr label">Description</label>
-            <input id="beer-descr" type="text" value="{{beer.descr}}" class="input-text input" name="description">
+            <input id="beer-descr" type="text" class="input-text input" value="{{product.description}}"
+                 name="description">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-price" class="label-price label">Price</label>
-            <input id="beer-price" type="number" value="{{beer.price}}" class="beer-price input">
+            <input id="beer-price" type="number" min="0" class="beer-price input" value="{{product.price}}" name="price" required>
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="beer-main-cat" class="label-main-cat label">Main category</label>
-            <select id="main_category" class="select" required name="category">
-                <option value="-1" disabled selected>Choose main Category...</option>
-                <option value="Pilsner">Pilsner</option>
+            <label for="beer-quantity" class="label-price label">quantity</label>
+            <input id="beer-quantity" type="number" min="0" class="beer-quantity input" value="{{product.quantity}}" name="quantity" required>
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <img src="{{this.image}}" alt="current image">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="beer-img" class="label-price label">Image</label>
+            <input id="beer-img" type="file" class="bear-price input" name="image">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="category" class="label-main-cat label">Main category</label>
+            <select id="category" class="select" required name="category">
+                <option value="-1" disabled selected>Choose a category</option>
+                <option selected value="Pilsner">Pilsner</option>
                 <option value="Dunkel">Dunkel</option>
                 <option value="Ale">Ale</option>
                 <option value="Lager">Lager</option>
                 <option value="Wheat">Wheat</option>
                 <option value="Stout">Stout</option>
                 <option value="Porter">Porter</option>
-                <option value="Porter">Porter</option>
+                <option value="Marzen">Marzen</option>
             </select>
         </div>
 
         <button class="button-primary add-beer-btn">Edit this beer</button>
     </form>
+
 </div>

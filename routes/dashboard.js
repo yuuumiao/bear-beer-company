@@ -44,10 +44,8 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
 
 // GET to edit the products
 router.get("/product-edit/:id", async (req, res, next) => {
-  const beer = await BeerModel.findById(req.params.id);
-  //const carts = await CartModel.find();
-  //console.log(">>>>>", beer);
-  res.render("dashboard/product-edit", { beer });
+  const product = await BeerModel.findById(req.params.id);
+  res.render("dashboard/product-edit", { product });
 });
 
 // GET to post the edit products
