@@ -22,7 +22,6 @@ router.get("/products-manage", async (req, res, next) => {
 // GET to add new the products
 router.get("/product-add", (req, res, next) => {
   try {
-    //const carts = await CartModel.find();
     res.render("dashboard/product-add");
   } catch (err) {
     next(err);
@@ -32,7 +31,7 @@ router.get("/product-add", (req, res, next) => {
 // GET to post products
 router.post("/product-add", async (req, res, next) => {
   const newBeer = { ...req.body };
-  console.log(req.body);
+  console.log(req.body)
 
   try {
     await BeerModel.create(newBeer);
