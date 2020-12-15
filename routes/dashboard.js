@@ -31,11 +31,11 @@ router.get("/product-add", (req, res, next) => {
 
 // GET to post products
 router.post("/product-add", async (req, res, next) => {
-  const newBear = { ...req.body };
+  const newBeer = { ...req.body };
   console.log(req.body);
 
   try {
-    await BeerModel.create(newBear);
+    await BeerModel.create(newBeer);
     res.redirect("/dashboard");
   } catch (err) {
     next(err);
@@ -44,17 +44,18 @@ router.post("/product-add", async (req, res, next) => {
 
 // GET to edit the products
 router.get("/product-edit/:id", async (req, res, next) => {
-  const bear = await BeerModel.findById(req.params.id);
-  const carts = await CartModel.find();
-  console.log(bear);
-  res.render("dashboard/product-edit", { bear, carts });
+  const beer = await BeerModel.findById(req.params.id);
+  //const carts = await CartModel.find();
+  //console.log(">>>>>", beer);
+  res.render("dashboard/product-edit", { beer });
 });
 
 // GET to post the edit products
 router.post("/product-edit/:id", async (req, res, next) => {
   try {
-    const bear = req.body;
-    await BeerModel.findByIdAndUpdate(req.params.id, sneaker);
+    const beer = req.body;
+    //console.log(beer);
+    await BeerModel.findByIdAndUpdate(req.params.id, beer);
     res.redirect("/dashboard");
   } catch (err) {
     next(err);
