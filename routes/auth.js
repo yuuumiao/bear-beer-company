@@ -37,10 +37,6 @@ router.post('/signup', (req, res, next) => {
 
 //////////// L O G I N ///////////
 
-router.get("/profile", (req,res,next) => {
-  //
-  res.render('profile', {user : req.session.currentUser, scripts: ["address"]})
-})
 
 // .get() route ==> to display the login form to users
 router.get('/login',  (req, res) => {
@@ -74,7 +70,7 @@ router.post('/login', (req, res, next) => {
         req.session.currentUser = user;
         console.log('SESSION => ', req.session);
         console.log(req.session.currentUser);
-        res.redirect("/auth/profile")
+        res.redirect("/user/profile")
         //res.render('profile', { user });
 
         
@@ -93,8 +89,6 @@ router.get("/logout", async (req, res) => {
  
     console.log("logout", req.session.currentUser);
     req.session.destroy();
-    // cannot access session here
-    // console.log("logout2", req.session.currentUser);
     res.redirect('/');
 
 });
