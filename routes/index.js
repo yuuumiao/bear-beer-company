@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const BeerModel = require("./../models/Product");
+const User = require("./../models/User");
 
 
 /* GET home page. */
@@ -21,7 +22,8 @@ router.get("/collection", async (req, res, next) => {
 
 //Get item page
 router.get("/collection/:id", async (req, res, next) => {
-  const product = await BeerModel.findById(req.params.id);
+  const product = await BeerModel.findById(req.params.id).populate({path: "userId", model:"User"})
+  console.log(product)
   res.render("one-product", { product })
 })
 

@@ -3,15 +3,16 @@
         {{#with product}}
         {{> item_mini}}
 
+        <h1>Reviews: </h1>
         {{#unless this.reviews}}
         <p>No reviews</p>
         {{/unless}}
-
         <ul>
                 {{#each this.reviews}}
                 <li>
-                        <p>{{this.rate}}</p>
-                        <p>{{this.comment}}</p>
+                        <p>{{this.userId.name}}: <span>:: {{this.comment}}</span></p>
+                        <p>{{{stars this.rate}}}</p>
+
                 </li>
                 {{/each}}
         </ul>

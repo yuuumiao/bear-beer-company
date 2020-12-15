@@ -1,0 +1,13 @@
+.footer {
+  bottom: 0;
+  position: fixed;
+  padding: 0.5rem;
+  height: 31px;
+  width: 100%;
+  background: #006c5c;
+  color: white;
+}
+
+footer p {
+  font-size: 0.8rem;
+}
