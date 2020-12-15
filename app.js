@@ -51,8 +51,8 @@ app.use(
   })
 );
 
-
-
+// expose login status to the hbs templates
+app.use(require("./middlewares/exposeLoginStatus"));
 
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)

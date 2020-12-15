@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     },
     wishlists: [{ type: Schema.Types.ObjectId, ref: "products" }],
     role: { type: String, enum: ["user", "admin"], default: "user" },
-    hashPassword: { type: String } //require: true
+    passwordHash: { type: String } //require: true
 },
 { timestamps: true })
 //gopgle map api with the auto fill the address 

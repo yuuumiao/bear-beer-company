@@ -2,81 +2,82 @@ const express = require("express");
 const router = express.Router();
 const UserModel = require("./../models/User");
 const bcrypt = require("bcrypt"); // lib to encrypt data
+const saltRounds = 10;
 
-router.get("/signin", async (req, res, next) => {
-  res.render("auth/signin");
-});
 
-router.post("/signin", async (req, res, next) => {
-  // DO something
-  //   res.render("auth/signin.hbs");
-  const { email, password } = req.body;
-  const foundUser = await UserModel.findOne({ email: email });
+//////////// S I G N U P ///////////
 
-  if (!foundUser) {
-    //   Display an error message telling the user that either the password
-    // or the email is wrong
-    // req.flash("error", "Invalid credentials");
-    res.redirect("/auth/signin");
-    // res.render("auth/signin.hbs", { error: "Invalid credentials" });
-  } else {
-
-    const isSamePassword = bcrypt.compareSync(password, foundUser.password);
-    if (!isSamePassword) {
-      // Display an error message telling the user that either the password
-      // or the email is wrong
-    //   req.flash("error", "Invalid credentials");
-      res.redirect("/auth/signin");
-      // res.render("auth/signin.hbs", { error: "Invalid credentials" });
-    } else {
-      //
-      // Authenticate the user...
-      const userDocument = { ...foundUser };
-      const userObject = foundUser.toObject();
-      delete userObject.password; // remove password before saving user in session
-      // console.log(req.session, "before defining current user");
-      req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
-
-      // https://www.youtube.com/watch?v=nvaE_HCMimQ
-      // https://www.youtube.com/watch?v=OFRjZtYs3wY
-
-    //   req.flash("success", "Successfully logged in...");
-      res.redirect("/dashboard");
-    }
-  }
-});
-
+// .get() route ==> to display the signup form to users
 router.get("/signup", async (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", async (req, res, next) => {
-  try {
-    const newUser = { ...req.body };
-    const foundUser = await UserModel.findOne({ email: newUser.email });
 
-    if (foundUser) {
-    //   req.flash("warning", "Email already registered");
-      res.redirect("/auth/signup");
-    } else {
-      const hashedPassword = bcrypt.hashSync(newUser.password, 10);
-      newUser.password = hashedPassword;
-      await User.create(newUser);
-    //   req.flash("success", "Congrats ! You are now registered !");
-      res.redirect("/auth/signin");
-    }
-  } catch (error) {
-    next(error);
-  }
+// .post() route ==> finish the signup and redirect to the homepage
+router.post('/signup', (req, res, next) => {
+  const { email, password } = req.body;
+ 
+  bcrypt
+    .genSalt(saltRounds)
+    .then(salt => bcrypt.hash(password, salt))
+    .then(hashedPassword => {
+      return UserModel.create({
+        email,
+        passwordHash: hashedPassword
+      });
+    })
+    .then(userFromDB => {
+      console.log('Newly created user is: ', userFromDB);
+      res.redirect('/');
+    })
+    .catch(error => next(error));
 });
 
+
+
+//////////// L O G I N ///////////
+
+// .get() route ==> to display the login form to users
+router.get('/login', (req, res) => res.render('auth/login'));
+
+// .post() login route ==> to process form data
+router.post('/login', (req, res, next) => {
+  const { email, password } = req.body;
+ 
+  if (email === '' || password === '') {
+    res.render('auth/login', {
+      errorMessage: 'Please enter both, email and password to login.'
+    });
+    return;
+  }
+ 
+  UserModel.findOne({ email })
+    .then(user => {
+      if (!user) {
+        res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
+        return;
+      } else if (bcrypt.compareSync(password, user.passwordHash)) {  
+        console.log("passed", user);
+        res.render('profile', { user });
+        // res.redirect("/")
+      } else {
+        res.render('auth/login', { errorMessage: 'Incorrect password.' });
+      }
+    })
+    .catch(error => next(error));
+});
+ 
+
+
+
+ //////////// S I G N O U T ///////////
+ 
 router.get("/signout", async (req, res, next) => {
   req.session.destroy(function (err) {
     // cannot access session here
     // console.log(req.session.currentUser);
-    res.redirect("/auth/signin");
+    res.redirect("/auth/login");
   });
 });
 
 module.exports = router;
-
