@@ -6,18 +6,35 @@
 </td>
 
 <td class="table-division">
-        <div>${{this.category}}</div>
+        <div>{{this.category}}</div>
 </td>
 
 <td class="table-division">
         <div>${{this.price}}</div>
 </td>
+
 <td class="table-division">
-        <div>${{this.description}}</div>
+        <div>{{this.quantity}}</div>
+</td>
+
+<td class="table-division description-cell">
+        <div>
+                <p class="less" >{{{trimString this.description 0 50}}}...</p>
+                <p class="full" style="display:none">{{this.description}}</p>
+                <a class="see-more"><i class="far fa-eye"></i></a>
+        </div>
+
+</td>
+
+<td class="table-division">
+        <div>{{this.reviews}}</div>
+</td>
+
+<td class="table-division">
+        <a href="/dashboard/product-edit/{{this._id}}" data-id-product="{{this._id}}"><i
+                        class="fas fa-user-edit"></i></a>
 </td>
 <td class="table-division">
-        <a href="/dashboard/product-edit/{{this._id}}" data-id-product="{{this._id}}">Edit</a>
-</td>
-<td class="table-division">
-        <a href="/dashboard/product-delete/{{this._id}}" data-id-product="{{this._id}}" aria-hidden="true">Delete</a>
+        <a href="/dashboard/product-delete/{{this._id}}" data-id-product="{{this._id}}" aria-hidden="true"><i
+                        class="fas fa-trash-alt"></i></a>
 </td>
