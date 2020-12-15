@@ -8,11 +8,12 @@ const UserSchema = new Schema({
     isAdult: {type: Boolean, default: true},
     email: { type: String, unique: true },
     address: {
-            streetNumber: Number,
-            street: String,
-            city: String,
-            state: String,
-        postcode: String,
+        street_number: Number,
+        route: String,
+        locality: String,
+        administrative_area_level_1: String,
+            country: String,
+            postal_code: String,
         telephone: String
     },
     wishlists: [{ type: Schema.Types.ObjectId, ref: "products" }],
