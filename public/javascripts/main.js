@@ -1,7 +1,13 @@
 const seeMoreList = document.querySelectorAll(".see-more");
 const categoryList = document.querySelectorAll(".category-list-item input");
 const priceList = document.querySelectorAll(".price-list-item input");
+const sortLowToHigh = document.querySelector(".low-high-price");
+const sortHighToLow = document.querySelector(".high-low-price");
+const searchInput = document.querySelector("#search input");
+const searchBtn = document.querySelector("#search a");
+const matchList = document.getElementById("match-list");
 let isSeeMore = false;
+
 
 //handle 'see more' button: show description
 for (let i = 0; i < seeMoreList.length; i++) {
@@ -28,12 +34,12 @@ function displayProdGrid(products) {
         const title = document.getElementById("products-title");
         //display title to show numbers of products in this category
         title.innerHTML = '';
-        title.innerHTML +=` Products: <span id="products_count" class="products-count">(${products.length})</span>`
-        
+        title.innerHTML += ` Products: <span id="products_count" class="products-count">(${products.length})</span>`
+
 
         productsGrid.innerHTML = '';
         console.log(products.length);
-        if(products.length !== 0){
+        if (products.length !== 0) {
                 for (let i = 0; i < products.length; i++) {
                         console.log("check")
                         productsGrid.innerHTML += `
@@ -52,7 +58,7 @@ function displayProdGrid(products) {
                         </a>
                         `
                 }
-        }else{
+        } else {
                 productsGrid.innerHTML += `<h1>*******************No products in this category</h1>`;
         }
 
@@ -60,11 +66,17 @@ function displayProdGrid(products) {
 //sort by category
 categoryList.forEach(category => {
         category.addEventListener('click', async () => {
-                const chosenCategory = category.getAttribute("data-category")
-                // console.log(chosenCategory);
-                const getProducts = await axios.get(`/api/manage/filter/${chosenCategory}`);
+                const chosenCategory = category.getAttribute("data-category");
+                let getProducts = [];
+                if (chosenCategory === "Allproducts") {
+                        getProducts = await axios.get(`/api/manage`);
+
+                } else {
+                        getProducts = await axios.get(`/api/manage/filter/${chosenCategory}`);
+                }
+
                 const products = getProducts.data;
-                // console.log(products)
+
 
                 displayProdGrid(products);
         })
@@ -72,9 +84,13 @@ categoryList.forEach(category => {
 
 //sort by price
 priceList.forEach(price => {
-        price.addEventListener('click', async()=>{
-                const largestPrice = price.getAttribute("data-price");
-                const smallestPrice = largestPrice - 2;
+        price.addEventListener('click', async () => {
+                let largestPrice = price.getAttribute("data-price");
+                let smallestPrice = largestPrice - 2;
+
+                if (largestPrice == 6) {
+                        largestPrice = 100;
+                }
                 const getProducts = await axios.get(`/api/manage/filter/price/${smallestPrice}/${largestPrice}`);
                 const products = getProducts.data;
                 // console.log(products)
@@ -82,3 +98,46 @@ priceList.forEach(price => {
                 displayProdGrid(products);
         })
 })
+
+//sort by price: low to high price
+sortLowToHigh.addEventListener('click', async () => {
+        const getProducts = await axios.get(`api/manage`);
+        const products = getProducts.data.sort(function (a, b) {
+                if (a.price < b.price) return -1;
+                else if (a.price > b.price) return 1;
+                else return 0;
+        });
+        displayProdGrid(products);
+})
+
+sortHighToLow.addEventListener('click', async () => {
+        const getProducts = await axios.get(`api/manage`);
+        const products = getProducts.data.sort(function (a, b) {
+                if (a.price < b.price) return 11;
+                else if (a.price > b.price) return -1;
+                else return 0;
+        });
+        displayProdGrid(products);
+})
+
+
+//searching by name of beer
+
+searchInput.addEventListener('input', async () => {
+        const res = await axios.get(`api/manage`);
+        const states = res.data;
+        console.log(states)
+        //get matches to current text input
+        let products = states.filter(state => {
+                const regex = new RegExp(`^${searchInput.value}`, 'gi');
+                // console.log(state.category)
+                return state.name.match(regex);
+        });
+        // console.log(products)
+        if (searchInput.value.length === 0) {
+                products = [];
+                displayProdGrid(products)
+        } else {
+                displayProdGrid(products)
+        };
+});

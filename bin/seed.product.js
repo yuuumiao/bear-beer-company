@@ -7,7 +7,7 @@ const BeerModel = require("./../models/Product");
 const beers = [
   {
     name: "DIE WEISSE HELL",
-    price: 5,
+    price: 1,
     quantity: 100,
     category: "Pilsner",
     description: `"DIE WEISSE HELL" is a naturally cloudy wheat beer, comes in a swing top bottle, and has been double fermented (bottle conditioning).
@@ -17,7 +17,7 @@ const beers = [
   },
   {
     name: "DIE BIO WEISSE HELL GLUTENFREI",
-    price: 5,
+    price: 2,
     quantity: 100,
     category: "Dunkel",
     description: `DIE WEISSE HELL" is a naturally cloudy wheat beer, comes in a swing top bottle, and has been double fermented (bottle conditioning).
@@ -27,7 +27,7 @@ const beers = [
   },
   {
     name: "DIE BIO WEISSE ALKOHOLFREI",
-    price: 5,
+    price: 3,
     quantity: 200, 
     category: "Lager",
     description: `Our non-alcoholic wheat beer, brewed using sustainable organic raw materials, is the ideal thirst quencher after exercising and for regeneration. Rich in vitamins, isotonic, and gluten-free.
@@ -36,7 +36,7 @@ const beers = [
   },
   {
     name: "Die Weisse Dunkel",
-    price: 5,
+    price: 4,
     quantity: 100,
     category: "Pilsner",
     description: "DIE WEISSE DUNKEL is produced from five different special types of malt. This beer has only a hint of hops on the nose, but is lively at the same time, with a firm head and a pronounced fruity note and a long malty finish.",
@@ -52,7 +52,7 @@ const beers = [
   },
   {
     name: "Salzburger hell",
-    price: 5,
+    price: 6,
     quantity: 400, 
     category: "Wheat",
     description: "",

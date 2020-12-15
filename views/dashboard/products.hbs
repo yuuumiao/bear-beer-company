@@ -5,6 +5,11 @@
                 <h4>Categories</h4>
                 <ul id="category-list" data-category="">
                         <li class="category-list-item">
+                                <input id="allProducts" type="radio" class="checkbox" name="checkbox"
+                                        data-category="Allproducts" />
+                                <label for="allProducts">All products</label>
+                        </li>
+                        <li class="category-list-item">
                                 <input id="pilsner" type="radio" class="checkbox" name="checkbox"
                                         data-category="Pilsner" />
                                 <label for="pilsner">Pilsner</label>
@@ -51,14 +56,17 @@
                 </ul>
 
                 <h4>Price</h4>
+
                 <ul id="price">
                         <li class="low-high-price">
-                                <input id="low-to-high" type="radio" class="checkbox" name="checkbox" data-price="2" />
+                                <input id="low-to-high" type="radio" class="checkbox" name="checkbox"
+                                        data-price="low" />
                                 <label for="low-to-high">Low to high</label>
                         </li>
-                        <li class="low-high-price">
-                                <input id="high-to-low" type="radio" class="checkbox" name="checkbox" data-price="2" />
-                                <label for="high-to-low">under $2</label>
+                        <li class="high-low-price">
+                                <input id="high-to-low" type="radio" class="checkbox" name="checkbox"
+                                        data-price="High" />
+                                <label for="high-to-low">High to Low</label>
                         </li>
                 </ul>
 
@@ -74,7 +82,7 @@
                         </li>
 
                         <li class="price-list-item">
-                                <input id="over4" type="radio" class="checkbox" name="checkbox" data-price="444" />
+                                <input id="over4" type="radio" class="checkbox" name="checkbox" data-price="6" />
                                 <label for="over4">over $4</label>
                         </li>
 
@@ -82,6 +90,14 @@
 
 
         </aside>
+{{!-- 
+        <section>
+                <select name="sorting" id="sorting" name="Sorting">
+                        <option selected="selected" value="price-new">New products</option>
+                        <option value="price-asc">Ascend Price </option>
+                        <option value="price-desc">Descend Price</option>
+                </select>
+        </section> --}}
 
         {{!-- PRODUCTS --}}
         <section class="products-wrapper">
