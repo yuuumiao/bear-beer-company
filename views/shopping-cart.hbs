@@ -1,1 +1,27 @@
-<form action="/"></form>
+<div class="manage-products-wrapper">
+        <h3 class="manage-products-title">Your cart</h3>
+        <table class="product-manage-table">
+                <thead>
+                        <tr class="table-row">
+                                <th class="table-head">Beer Name</th>
+                                <th class="table-head">Quantity</th>
+                                <th class="table-head">Price</th>
+                                <th class="table-head">Subtotals</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {{#each carts}}
+                        <tr class="table-row">
+<td class="table-division">
+        {{!-- <div>{{this.name}}</div> --}}
+</td>
+                        </tr>
+                        {{/each}}
+                        {{#unless sneakers}}
+                        <tr>
+                                <td colspan="4">No beer yet</td>
+                        </tr>
+                        {{/unless}}
+                </tbody>
+        </table>
+</div>
