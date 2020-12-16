@@ -39,10 +39,6 @@ hbs.registerHelper("average", function (arrayReviews) {
         else return +(sum / count).toFixed(1)
 })
 
-// calculate subtotal
-hbs.registerHelper("priceOfOneProd", function (a,b){
-        return parseInt(a)*parseInt(b);
-})
 
 //check stock
 hbs.registerHelper("stock", function(qClient, qStock){
@@ -51,4 +47,10 @@ hbs.registerHelper("stock", function(qClient, qStock){
         }else{
                 return qClient;
         }
+})
+
+//check current windown
+hbs.registerHelper("whatURL", function(a){
+        console.log(a);
+        return "yeahhhhhhhhhhhh"
 })

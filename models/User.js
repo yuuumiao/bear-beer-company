@@ -24,6 +24,6 @@ const UserSchema = new Schema({
 //gopgle map api with the auto fill the address 
 //8 lines code, there is a tutorial
 
-const UserModel = mongoose.model("user", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
 
 module.exports = UserModel;

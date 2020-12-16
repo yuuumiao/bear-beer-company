@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 const BeerModel = require("./../models/Product");
 const CartModel = require("./../models/Cart");
-const fileUploader = require("./../configs/cloudinary")
+const fileUploader = require("./../configs/cloudinary");
+const PendingModel = require("../models/PendingOrder");
 
 // GET to show all the products
 router.get("/", async (req, res, next) => {
@@ -13,8 +14,10 @@ router.get("/", async (req, res, next) => {
 // GET to manage all the products
 router.get("/products-manage", async (req, res, next) => {
   try {
+    const pending = await PendingModel.find().populate("orders.user").populate("orders.cartId")
     const products = await BeerModel.find();
     res.render("dashboard/products-manage", { products, scripts: ["products-manage"] });
+    // res.json(pending)
   } catch (err) {
     next(err);
   }

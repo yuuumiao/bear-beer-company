@@ -31,56 +31,56 @@ router.get("/collection/:id", async (req, res, next) => {
  
 })
 
-//Get shopping cart page
-router.get("/shoppingcart", async (req, res, next) => {
-  try{
-    const carts = await CartModel.find().populate("items.productId")
-    const productsAdded = carts[0].items;
-    // res.json(carts)
-    console.log(productsAdded);
-    res.render("shopping-cart", { productsAdded, scripts: ["shopping-cart"] });
-  }catch(err){
-    next(err)
-  }
+// //Get shopping cart page
+// router.get("/shoppingcart", async (req, res, next) => {
+//   try{
+//     const carts = await CartModel.find().populate("items.productId")
+//     const productsAdded = carts[0].items;
+//     // res.json(carts)
+//     console.log(productsAdded);
+//     res.render("shopping-cart", { productsAdded, scripts: ["shopping-cart"] });
+//   }catch(err){
+//     next(err)
+//   }
 
-})
-
-//GET Checkout
-router.get("/checkout", async(req, res, next) => {
-  res.render("checkout");
-})
-
-// -------move to ./api/api.shoppingcart 
-// //get add product id to cart
-// router.get("/shoppingcart/:id", async (req, res, next) => {
-//   try{}
-//   res.json(await CartModel.find());
 // })
-//post add product id to cart
-router.post("/shoppingcart/:id", async (req, res, next) => {
-  console.log(req.body)
-  try{
-    if ((await CartModel.find()).length == 0) {
-      res.json(await CartModel.create({ items: [req.body] }));
-    } else {
-      res.json(await CartModel.updateOne({ $push: { items: req.body } }));
-    }
-  }catch(err){
-    next(err)
-  }
+
+// //GET Checkout
+// router.get("/checkout", async(req, res, next) => {
+//   res.render("checkout");
+// })
+
+// // -------move to ./api/api.shoppingcart 
+// // //get add product id to cart
+// // router.get("/shoppingcart/:id", async (req, res, next) => {
+// //   try{}
+// //   res.json(await CartModel.find());
+// // })
+// //post add product id to cart
+// router.post("/shoppingcart/:id", async (req, res, next) => {
+//   console.log(req.body)
+//   try{
+//     if ((await CartModel.find()).length == 0) {
+//       res.json(await CartModel.create({ items: [req.body] }));
+//     } else {
+//       res.json(await CartModel.updateOne({ $push: { items: req.body } }));
+//     }
+//   }catch(err){
+//     next(err)
+//   }
 
 
-});
-// delete product in shopping cart
-router.get("/shoppingcart/delete/:id", async (req, res, next) => {
-  try {
-    console.log("here: ", req.params.id)
-    await CartModel.updateOne({ $pull: { items: {_id: req.params.id} } });
-    res.redirect("/shoppingcart");
-  } catch (err) {
-    next(err)
-  }
-});
+// });
+// // delete product in shopping cart
+// router.get("/shoppingcart/delete/:id", async (req, res, next) => {
+//   try {
+//     console.log("here: ", req.params.id)
+//     await CartModel.updateOne({ $pull: { items: {_id: req.params.id} } });
+//     res.redirect("/shoppingcart");
+//   } catch (err) {
+//     next(err)
+//   }
+// });
 
 
 

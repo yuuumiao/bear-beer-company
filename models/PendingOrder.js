@@ -10,6 +10,6 @@ const PendingSchema = new Schema({
                 }
         ]
 })
-const PendingtModel = mongoose.model("pending", PendingSchema);
+const PendingModel = mongoose.model("pending", PendingSchema);
 
-module.exports = PendingtModel;
+module.exports = PendingModel;

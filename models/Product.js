@@ -10,7 +10,7 @@ const BeerSchema = new Schema({
         description: { type: String, trim: true },
         image: { type: String, default: "https://via.placeholder.com/300" },
         reviews: [{
-                userId: { type: Schema.Types.ObjectId, ref: "user" },
+                userId: { type: Schema.Types.ObjectId, ref: "User" },
                 rate: {type: Number, min:0, max:5},
                 comment: String
         }]
