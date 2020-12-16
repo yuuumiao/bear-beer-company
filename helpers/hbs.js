@@ -11,7 +11,7 @@ hbs.registerHelper('trimString', function (passedString, startstring, endstring)
 
 });
 
-
+//show rate in reviews
 hbs.registerHelper("stars", function (value) {
         const unit = Math.floor(value);
         const demical = value - unit;
@@ -25,6 +25,7 @@ hbs.registerHelper("stars", function (value) {
 
 })
 
+//calculate average rates
 hbs.registerHelper("average", function (arrayReviews) {
         let sum = 0;
         let count = 0;
@@ -36,4 +37,16 @@ hbs.registerHelper("average", function (arrayReviews) {
         })
         if (sum === 0) return `No reviews`
         else return +(sum / count).toFixed(1)
+})
+
+// calculate subtotal
+hbs.registerHelper("priceOfOneProd", function (a,b){
+        return parseInt(a)*parseInt(b);
+})
+
+//check stock
+hbs.registerHelper("stock", function(qClient, qStock){
+        if(qClient > qStock){
+                return 
+        }
 })
