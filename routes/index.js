@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const BeerModel = require("./../models/Product");
-const User = require("./../models/User");
-const { route } = require('./dashboard');
+const UserModel = require("./../models/User");
+const CartModel = require("./../models/Cart");
 
 
 /* GET home page. */
@@ -22,24 +22,36 @@ router.get("/collection", async (req, res, next) => {
 
 //Get item page
 router.get("/collection/:id", async (req, res, next) => {
-  const product = await BeerModel.findById(req.params.id).populate({ path: "userId", model: "User" })
+  const product = await BeerModel.findById(req.params.id).populate({ path: "userId", model: "users" })
   console.log(product)
   res.render("one-product", { product, scripts: ["addToCart"] })
 })
 
 //Get shopping cart page
 router.get("/shoppingcart", async(req, res, next) => {
-  res.render("shopping-cart", { });
+  const carts = await CartModel.find().populate({path:'items', populate:{ path:}})
+  console.log(carts)
+  res.render("shopping-cart");
 })
 
-//get add product id to cart
-router.get("/shoppingcart/:id",(req, res, next) => {
 
+
+// -------move to ./api/api.shoppingcart 
+//get add product id to cart
+router.get("/shoppingcart/:id", async(req, res, next) => {
+  res.json(await CartModel.find());
 })
 //post add product id to cart
-router.post("/shoppingcart/:id", (req, res, next) => {
-  
-})
+router.post("/shoppingcart/:id", async(req, res, next) => {
+  console.log(req.body)
+  if( (await CartModel.find()).length == 0 ){
+    res.json(await CartModel.create({items:[ req.body]}));
+  }else{
+    res.json(await CartModel.updateOne( { $push: {items: req.body}} ));
+  }
+ 
+});
+
 
 module.exports = router;
 
