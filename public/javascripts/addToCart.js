@@ -24,8 +24,3 @@ for (let i = 0; i < btnAddToCart.length; i++) {
 }
 
 
-// btnAddToCart.forEach(btn => {
-//         btn.addEventListener('click', ()=> {
-//                 console.log(btn)
-//         })
-// })

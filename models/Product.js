@@ -15,6 +15,6 @@ const BeerSchema = new Schema({
                 comment: String
         }]
 }, { timestamps: true })
-const BeerModel = mongoose.model("beer", BeerSchema);
+const BeerModel = mongoose.model("Beer", BeerSchema);
 
 module.exports = BeerModel;
