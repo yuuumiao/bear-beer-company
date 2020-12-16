@@ -16,22 +16,23 @@
                                 <td class="table-division">
                                         <div>{{this.productId.name}}</div>
                                 </td>
-                                <td class="table-division">
-                                        <div>{{this.quantity}}</div>
-                                        <div>{{this.productId.quantity}}</div>
+                                <td class="table-division quantity-shopping-cart">
+                                       <div> 
+                                               {{#stock this.quantity this.productId.quantity }}{{/stock}}
+                                        </div>
                                 </td>
-                                <td class="table-division">
+                                <td class="table-division price-shopping-cart">
                                         <div>{{this.productId.price}}</div>
                                 </td>
                                 <td class="table-division subTotal">
-                                        <div>{{priceOfOneProd this.quantity this.productId.price}}</div>
+                                
                                 </td>
                                 <td class="table-division delete-shopping-cart">
                                         <div><a href="/shoppingcart/delete/{{this._id}}" class="btn-{{this._id}}"><i
                                                                 class="fas fa-trash-alt"></i></a></div>
                                 </td>
                         </tr>
-
+                        
                         {{/each}}
                         {{#unless productsAdded}}
                         <tr class="table-row">

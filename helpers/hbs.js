@@ -47,6 +47,8 @@ hbs.registerHelper("priceOfOneProd", function (a,b){
 //check stock
 hbs.registerHelper("stock", function(qClient, qStock){
         if(qClient > qStock){
-                return 
+                return `<p>Sorry, we have only ${qStock} beers in stocks. Please delete our choice and modify your quantity</p>`
+        }else{
+                return qClient;
         }
 })
