@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const UserModel = require("./../models/User");
-const BeerModel = require("./../models/Product")
+const BeerModel = require("./../models/Product");
+const { db } = require('./../models/Product');
 
 /* GET users listing. */
 
@@ -34,24 +35,27 @@ router.post("/profile", async(req,res,next) => {
 })
 
 
-router.get("/wishlist/product-add/:id", async(req,res, next) => {
-  console.log("here");
+//will move to the api/api.wishlist.js
+//this get is for seeing all the infomation
+router.get("/wishlist/product-add", async(req, res, next) => {
+  res.json(await UserModel.find());
+})
+
+
+router.post("/wishlist/product-add/:id", async(req,res, next) => {
+  console.log("body", req.body);
+  
   try{
 
-    const beer = await BeerModel.findById(req.params.id)
-      console.log("bber", beer)
-      console.log("currentUser", req.session.currentUser)
-      // const user = await UserModel.findById(req.session.currentUser._id)
-      // console.log(user)
-      // user.update
-     UserModel.update(
+    const wishlistBeer = await BeerModel.findById(req.params.id)
 
-      { _id: req.session.currentUser._id },
-      { $push: { wishlists: beer } }
+      console.log("beer", wishlistBeer)
+      // console.log("currentUser", req.session.currentUser)
 
-     )
-     res.send("hello updating")
-  }catch(err){
+      res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push: {wishlists: req.params.id}}, {new: true}))
+      
+
+    }catch(err){
       next(err);
   }
 })

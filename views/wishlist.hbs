@@ -1,0 +1,60 @@
+{{#if user}}
+<h1>Welcome {{ user.firstName }}!</h1>
+<p>This is your profile page my friend, feel free to edit it</p>
+<p>{{message}}</p>
+
+
+<form method="post" action="/user/profile/" class="form">
+
+
+    <label for="firstName" class="label">First Name</label>
+    <input id="firstName" type="text" class="input" value="{{user.firstName}}" name="firstName">
+
+    <label for="lastName" class="label">Last Name Name</label>
+    <input id="lastName" type="text" class="input" value="{{user.lastName}}" name="lastName">
+
+    <label for="email" class="label">Email address</label>
+    <input id="email" type="email" class="input" value="{{user.email}}" name="email">
+
+    <br>
+    <div id="locationField">
+        <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" />
+    </div>
+
+    <div id="address">
+
+        <label for="street_number" class="label">Street Number</label>
+        <input id="street_number" type="number" class="input" value="{{user.address.street_number}}"
+            name="address.street_number">
+
+        <label for="route" class="label">Street</label>
+        <input id="route" type="text" class="input" value="{{user.address.route}}" name="address.route">
+
+        <label for="locality" class="label">City</label>
+        <input id="locality" type="text" class="input" value="{{user.address.locality}}" name="address.locality">
+
+        <label for="administrative_area_level_1" class="label">State</label>
+        <input id="administrative_area_level_1" type="text" class="input"
+            value="{{user.address.administrative_area_level_1}}" name="address.administrative_area_level_1">
+
+        <label for="country" class="label">Country</label>
+        <input id="country" type="text" class="input" value="{{user.address.country}}" name="address.country">
+
+
+        <label for="postal_code" class="label">Postcode</label>
+        <input id="postal_code" type="text" class="input" value="{{user.address.postal_code}}"
+            name="address.postal_code">
+
+
+    </div>
+    <label for="telephone" class="label">telephone</label>
+    <input id="telephone" type="text" class="input" value="{{user.address.telephone}}" name="address.telephone">
+    <button class="btn">Update my profile</button>
+
+
+</form>
+
+{{else}}
+<p>You need to log in to see your wishlist</p>
+<a href="/auth/login">GO TO MY WISHLIST</a>
+{{/if}}
