@@ -1,15 +1,17 @@
 <div class="big-container product-manage-wrapper flexed-item">
-    <form action="/dashboard/product-edit/{{this._id}}" method="post" class="add-product-form"
+    <form action="/dashboard/product-edit/{{product._id}}" method="post" class="add-product-form"
         enctype="multipart/form-data">
         <h3 class="form-title">Edit details of beer</h3>
         <div class="form-item-wrapper flexed-item">
             <label for="beer-name" class="label-name label">Beer name</label>
             <input id="beer-name" type="text" value="{{product.name}}" class="input-text input" name="name" required>
         </div>
+
         <div class="form-item-wrapper flexed-item">
             <label for="beer-descr" class="label-descr label">Description</label>
-            <input id="beer-descr" type="textarea" class="input-text input" value="{{product.description}}"
-                name="description">
+            <textarea id="beer-descr" type="textarea" class="input-text input" name="description" cols="10" rows="10">
+                {{product.description}}
+                </textarea>
         </div>
 
         <div class="form-item-wrapper flexed-item">
@@ -23,10 +25,11 @@
                 name="quantity" required>
         </div>
         <div class="form-item-wrapper flexed-item">
-            <img src="{{this.image}}" alt="current image">
+            <label for="current-image">Current Image</label>
+            <img src="{{product.image}}" id="current-image" alt="current image">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="beer-img" class="label-price label">Image</label>
+            <label for="beer-img" class="label-price label">Change mage</label>
             <input id="beer-img" type="file" class="bear-price input" name="image">
         </div>
         <div class="form-item-wrapper flexed-item">

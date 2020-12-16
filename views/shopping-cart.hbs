@@ -1,9 +1,11 @@
 <div class="manage-products-wrapper">
+
         <h3 class="manage-products-title">Your cart</h3>
         <table class="product-manage-table">
                 <thead>
                         <tr class="table-row">
-                                <th class="table-head">Beer Name</th>
+                                <th class="table-head">Image</th>
+                                <th class="table-head">Name</th>
                                 <th class="table-head">Quantity</th>
                                 <th class="table-head">Price</th>
                                 <th class="table-head">Subtotals</th>
@@ -13,18 +15,22 @@
                 <tbody>
                         {{#each productsAdded}}
                         <tr class="table-row table-added-products">
+                                  <td class="table-division">
+                                        <div> <img src=" {{this.productId.image}}" alt="beer"></div>
+                                </td>
                                 <td class="table-division">
                                         <div>{{this.productId.name}}</div>
                                 </td>
-                                <td class="table-division">
-                                        <div>{{this.quantity}}</div>
-                                        <div>{{this.productId.quantity}}</div>
+                                <td class="table-division quantity-shopping-cart">
+                                        <div>
+                                                {{#stock this.quantity this.productId.quantity }}{{/stock}}
+                                        </div>
                                 </td>
-                                <td class="table-division">
+                                <td class="table-division price-shopping-cart">
                                         <div>{{this.productId.price}}</div>
                                 </td>
                                 <td class="table-division subTotal">
-                                        <div>{{priceOfOneProd this.quantity this.productId.price}}</div>
+
                                 </td>
                                 <td class="table-division delete-shopping-cart">
                                         <div><a href="/shoppingcart/delete/{{this._id}}" class="btn-{{this._id}}"><i
@@ -61,7 +67,7 @@
         {{#unless isLoggedIn}}
         <p><a href="/">Log in</a> before check out</p>
         {{/unless}}
-        {{#if isLoggedIn}}
-        <a href="/checkout" id="checkout">Proceed to checkout</a>
-        {{/if}}
+        {{!-- {{#if isLoggedIn}} --}}
+        <a href="/shoppingcart/checkout" id="checkout">Proceed to checkout</a>
+        {{!-- {{/if}} --}}
 </div>

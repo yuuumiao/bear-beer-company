@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 const BeerModel = require("./../models/Product");
 const CartModel = require("./../models/Cart");
-const fileUploader = require("./../configs/cloudinary")
+const fileUploader = require("./../configs/cloudinary");
+const PendingModel = require("../models/PendingOrder");
 
 // GET to show all the products
 router.get("/", async (req, res, next) => {
@@ -13,8 +14,10 @@ router.get("/", async (req, res, next) => {
 // GET to manage all the products
 router.get("/products-manage", async (req, res, next) => {
   try {
+    const pending = await PendingModel.find().populate("orders.user").populate("orders.cartId")
     const products = await BeerModel.find();
     res.render("dashboard/products-manage", { products, scripts: ["products-manage"] });
+    // res.json(pending)
   } catch (err) {
     next(err);
   }
@@ -32,7 +35,7 @@ router.get("/product-add", (req, res, next) => {
 // GET to post products
 router.post("/product-add", fileUploader.single('image'), async (req, res, next) => {
   const newBeer = { ...req.body };
-  if(!req.file) newBeer.image = undefined;
+  if (!req.file) newBeer.image = undefined;
   else newBeer.image = req.file.path;
   try {
     await BeerModel.create(newBeer);
@@ -45,17 +48,17 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
 // GET to edit the products
 router.get("/product-edit/:id", async (req, res, next) => {
   const product = await BeerModel.findById(req.params.id);
-  console.log(product)
+  // console.log(product)
   res.render("dashboard/product-edit", { product });
 });
 
 // GET to post the edit products
-router.post("/product-edit/:id", async (req, res, next) => {
+router.post("/product-edit/:id", fileUploader.single('image'), async (req, res, next) => {
+  const newBeer = { ...req.body };
+  if (req.file) {newBeer.image = req.file.path};
   try {
-    const beer = req.body;
-    //console.log(beer);
-    await BeerModel.findByIdAndUpdate(req.params.id, beer);
-    res.redirect("/dashboard");
+    await BeerModel.findByIdAndUpdate(req.params.id, newBeer, { new: true });
+    res.redirect("/dashboard/products-manage");
   } catch (err) {
     next(err);
   }

@@ -1,7 +1,7 @@
 <div class="manage-products-wrapper">
     <h3 class="manage-products-title">Manage your products catalog</h3>
     <div class="manage-products-wrapper-table">
-        <table class="product-manage-table">
+        <table class="content-tabel">
             <thead>
                 <tr class="table-row">
                     <th class="table-head">
@@ -11,25 +11,25 @@
                         <p>Product Name</p>
                     </th>
                     <th class="table-head">
-                        <p>Product Category</p> 
+                        <p>Product Category</p>
                     </th>
                     <th class="table-head">
-                        <p>Product Price</p> 
+                        <p>Product Price</p>
                     </th>
                     <th class="table-head">
-                        <p>Product Quantity</p> 
+                        <p>Product Quantity</p>
                     </th>
                     <th class="table-head">
-                        <p>Product Description</p> 
+                        <p>Product Description</p>
                     </th>
                     <th class="table-head">
-                        <p>Product Reviews</p> 
+                        <p>Product Reviews</p>
                     </th>
                     <th class="table-head">
-                        <p>Edit</p> 
+                        <p>Edit</p>
                     </th>
                     <th class="table-head">
-                        <p>Delete</p> 
+                        <p>Delete</p>
                     </th>
                 </tr>
             </thead>
@@ -43,7 +43,7 @@
 
                 {{#unless products}}
                 <tr>
-                    <td colspan="9">sorry no sneakers yet</td>
+                    <td colspan="9">sorry no beers yet</td>
                 </tr>
                 {{/unless}}
             </tbody>
@@ -51,3 +51,9 @@
     </div>
 
 </div>
+{{!-- <div class="">
+    <h3>Show pendding orders</h3>
+    {{#each pending}}
+<div>Client name: {{pending.orders}}</div>
+    {{/pending}}
+</div> --}}
