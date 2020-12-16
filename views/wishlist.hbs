@@ -1,60 +1,58 @@
 {{#if user}}
-<h1>Welcome {{ user.firstName }}!</h1>
-<p>This is your profile page my friend, feel free to edit it</p>
+
 <p>{{message}}</p>
 
+<div class="wishlist-products-wrapper">
+    <h3 class="wishlist-products-title">Your wishlist</h3>
+    <table class="product-wishlist-table">
+        <thead>
+            <tr class="table-row">
 
-<form method="post" action="/user/profile/" class="form">
+                <th class="table-head">Product</th>
 
+                <th class="table-head">Beer Name</th>
+                <th class="table-head">Price</th>
+                {{!-- <th class="table-head">Subtotals</th> --}}
+                <th class="table-head ">Remove from my wishlist </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each user.wishlists}}
+            <tr class="table-row table-added-products">
 
-    <label for="firstName" class="label">First Name</label>
-    <input id="firstName" type="text" class="input" value="{{user.firstName}}" name="firstName">
-
-    <label for="lastName" class="label">Last Name Name</label>
-    <input id="lastName" type="text" class="input" value="{{user.lastName}}" name="lastName">
-
-    <label for="email" class="label">Email address</label>
-    <input id="email" type="email" class="input" value="{{user.email}}" name="email">
-
-    <br>
-    <div id="locationField">
-        <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" />
-    </div>
-
-    <div id="address">
-
-        <label for="street_number" class="label">Street Number</label>
-        <input id="street_number" type="number" class="input" value="{{user.address.street_number}}"
-            name="address.street_number">
-
-        <label for="route" class="label">Street</label>
-        <input id="route" type="text" class="input" value="{{user.address.route}}" name="address.route">
-
-        <label for="locality" class="label">City</label>
-        <input id="locality" type="text" class="input" value="{{user.address.locality}}" name="address.locality">
-
-        <label for="administrative_area_level_1" class="label">State</label>
-        <input id="administrative_area_level_1" type="text" class="input"
-            value="{{user.address.administrative_area_level_1}}" name="address.administrative_area_level_1">
-
-        <label for="country" class="label">Country</label>
-        <input id="country" type="text" class="input" value="{{user.address.country}}" name="address.country">
+                <td class="table-division">
+                    <div><img src={{this.image}} alt="{{this.name}}"></div>
+                </td>
 
 
-        <label for="postal_code" class="label">Postcode</label>
-        <input id="postal_code" type="text" class="input" value="{{user.address.postal_code}}"
-            name="address.postal_code">
+                <td class="table-division">
+                    <div>{{this.name}}</div>
+                </td>
+
+                <td class="table-division">
+                    <div>{{this.price}}</div>
+                </td>
+
+                <td class="table-division delete-wishlist">
+                    <div><a href="/user/wishlist/product-delete/{{this._id}}" class="btn-wishlist-delete"
+                            data-delete-wishlist-id="{{this._id}}"><i class="fas fa-trash-alt"></i></a></div>
+                </td>
+            </tr>
+
+            {{/each}}
+            {{#unless products}}
+            <tr class="table-row">
+                <td colspan="4">you havent added any beer to your wishlist yett</td>
+            </tr>
+            {{/unless}}
 
 
-    </div>
-    <label for="telephone" class="label">telephone</label>
-    <input id="telephone" type="text" class="input" value="{{user.address.telephone}}" name="address.telephone">
-    <button class="btn">Update my profile</button>
+        </tbody>
+    </table>
 
 
-</form>
 
-{{else}}
-<p>You need to log in to see your wishlist</p>
-<a href="/auth/login">GO TO MY WISHLIST</a>
-{{/if}}
+    {{else}}
+    <p>You need to log in to see your wishlist</p>
+    <a href="/auth/login">GO TO MY WISHLIST</a>
+    {{/if}}

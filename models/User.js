@@ -16,7 +16,7 @@ const UserSchema = new Schema({
             postal_code: String,
         telephone: String
     },
-    wishlists: [{ type: Schema.Types.ObjectId, ref: "products" }],
+    wishlists: [{ type: Schema.Types.ObjectId, ref: "Beer" }],
     role: { type: String, enum: ["user", "admin"], default: "user" },
     passwordHash: { type: String } //require: true
 },

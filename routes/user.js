@@ -43,13 +43,13 @@ router.get("/wishlist/product-add", async(req, res, next) => {
 
 
 router.post("/wishlist/product-add/:id", async(req,res, next) => {
-  console.log("body", req.body);
+  // console.log("body", req.body);
   
   try{
 
     const wishlistBeer = await BeerModel.findById(req.params.id)
 
-      console.log("beer", wishlistBeer)
+      // console.log("beer", wishlistBeer)
       // console.log("currentUser", req.session.currentUser)
 
       res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push: {wishlists: req.params.id}}, {new: true}))
@@ -58,6 +58,37 @@ router.post("/wishlist/product-add/:id", async(req,res, next) => {
     }catch(err){
       next(err);
   }
+})
+
+
+router.get("/wishlist/list", async(req,res,next) => {
+  try{
+
+    // console.log(req.session.currentUser)
+    const wishlist = await UserModel.findById(req.session.currentUser._id).populate("wishlists")
+    // console.log("user, wishlist", wishlist);
+    res.render("wishlist", {user: wishlist});
+
+  }catch(err){
+    next(err)
+  }
+  
+})
+
+
+router.get("/wishlist/product-delete/:id", async(req, res, next) => {
+    try{
+
+      const deleteOne = await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$pull: {wishlists: req.params.id}}, {new: true})
+      res.redirect("/user/wishlist/list");
+      // res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$pull: {wishlists: req.params.id}}, {new: true}))
+ 
+    }catch(err){
+
+      next(err)
+
+    }
+
 })
 
 // GET for Admin manage the user dashboard, if needed
