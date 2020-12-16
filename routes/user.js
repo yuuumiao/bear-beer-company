@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const UserModel = require("./../models/User");
+const BeerModel = require("./../models/Product")
 
 /* GET users listing. */
 
@@ -32,6 +33,28 @@ router.post("/profile", async(req,res,next) => {
   res.render('profile', {user : update, scripts: ["address"], message:"You have successful updated your profile"})
 })
 
+
+router.get("/wishlist/product-add/:id", async(req,res, next) => {
+  console.log("here");
+  try{
+
+    const beer = await BeerModel.findById(req.params.id)
+      console.log("bber", beer)
+      console.log("currentUser", req.session.currentUser)
+      // const user = await UserModel.findById(req.session.currentUser._id)
+      // console.log(user)
+      // user.update
+     UserModel.update(
+
+      { _id: req.session.currentUser._id },
+      { $push: { wishlists: beer } }
+
+     )
+     res.send("hello updating")
+  }catch(err){
+      next(err);
+  }
+})
 
 // GET for Admin manage the user dashboard, if needed
 // router.get('/profile/:id', async (req, res, next) =>{
