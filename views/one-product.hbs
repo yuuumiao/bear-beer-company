@@ -3,19 +3,16 @@
 </a>
 <div class="one-product-container">
         {{#with product}}
-        {{!-- <form action="/shoppingcart/{{this._id}}" method="post"> --}}
-                {{!-- <form action="/collection/{{this._id}}" method="post"></form> --}}
                 <div>
                         <label for="cart-quantity">quantity</label>
                         <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
-                                class="input-shopping {{this._id}}">
+                                class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
                 </div>
                 <button class="btn-shopping">Add to cart</button>
                 <a href="/profile/wishlist">Add to wishList</a>
                 <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
                 <p id="displayMessage">here</p>
-                {{!--
-        </form> --}}
+  
 
         {{> item_mini}}
 

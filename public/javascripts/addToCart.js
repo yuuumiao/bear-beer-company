@@ -5,7 +5,7 @@ for (let i = 0; i < btnAddToCart.length; i++) {
         btnAddToCart[i].addEventListener('click', async () => {
                 const quantityInput = document.querySelectorAll(".input-shopping");
                 const quantity = parseInt(quantityInput[0].value);
-                const productId = quantityInput[0].getAttribute("class").split(' ')[1];
+                const productId = quantityInput[0].getAttribute("data-shopping-id");
               
                 try {
                         console.log("check")
