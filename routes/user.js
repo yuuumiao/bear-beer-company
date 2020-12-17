@@ -96,6 +96,11 @@ router.get("/wishlist/product-delete/:id", async(req, res, next) => {
 
 })
 
+// GET to fix the bug of user/auth/logout router
+// router.get("/auth/logout", (req,res, next) => {
+//   res.redirect("/auth/logout")
+// })
+
 // GET for Admin manage the user dashboard, if needed later
 // router.get('/profile/:id', async (req, res, next) =>{
 //   // how to know id user??? => to UserModel.findbyId

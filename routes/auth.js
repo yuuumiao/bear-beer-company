@@ -28,7 +28,8 @@ router.post('/signup', (req, res, next) => {
     })
     .then(userFromDB => {
       console.log('Newly created user is: ', userFromDB);
-      res.redirect('/');
+      req.session.currentUser = userFromDB;
+      res.redirect('/user/profile');
     })
     .catch(error => next(error));
 });
@@ -88,9 +89,9 @@ router.post('/login', (req, res, next) => {
 router.get("/logout", async (req, res) => {
  
     console.log("logout", req.session.currentUser);
-    req.session.destroy();
-    res.redirect('/');
-
+    req.session.destroy(function (err) {
+      res.redirect("/auth/login");
+    });
 });
 
 module.exports = router;
