@@ -27,7 +27,7 @@ router.post("/profile", async(req,res,next) => {
 
   const update = await UserModel.findByIdAndUpdate(req.session.currentUser._id, req.body, {new: true})
   req.session.currentUser = update;
-  ///Need to update the Model and session together, sort of//
+  ///Need to update the Model and session together, sort of
 
   // console.log("update", update);
 
@@ -51,8 +51,13 @@ router.post("/wishlist/product-add/:id", async(req,res, next) => {
 
       // console.log("beer", wishlistBeer)
       // console.log("currentUser", req.session.currentUser)
+      // if (){
 
-      res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push: {wishlists: req.params.id}}, {new: true}))
+        res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, {$push: {wishlists: req.params.id}}, {new: true}))
+
+        //https://stackoverflow.com/questions/30888282/how-to-remove-duplicate-values-inside-a-list-in-mongodb
+
+      // }
       
 
     }catch(err){
@@ -75,7 +80,7 @@ router.get("/wishlist/list", async(req,res,next) => {
   
 })
 
-
+// GET to delete the added items from the user's wishlists
 router.get("/wishlist/product-delete/:id", async(req, res, next) => {
     try{
 
@@ -91,7 +96,7 @@ router.get("/wishlist/product-delete/:id", async(req, res, next) => {
 
 })
 
-// GET for Admin manage the user dashboard, if needed
+// GET for Admin manage the user dashboard, if needed later
 // router.get('/profile/:id', async (req, res, next) =>{
 //   // how to know id user??? => to UserModel.findbyId
 //   const profile = await UserModel.findById(req.params.id) 

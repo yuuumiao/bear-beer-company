@@ -45,6 +45,9 @@ app.use(
 );
 
 
+// expose login status to the hbs templates
+app.use(require("./middlewares/exposeLoginStatus"));
+
 //routers
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));

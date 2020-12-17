@@ -4,6 +4,9 @@ const BeerModel = require("./../models/Product");
 const CartModel = require("./../models/Cart");
 const fileUploader = require("./../configs/cloudinary");
 const PendingModel = require("../models/PendingOrder");
+const protectAdminRoute = require("./../middlewares/protectAdminRoute");
+
+router.use(protectAdminRoute);
 
 // GET to show all the products
 router.get("/", async (req, res, next) => {

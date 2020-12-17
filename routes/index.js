@@ -24,7 +24,7 @@ router.get("/collection", async (req, res, next) => {
 router.get("/collection/:id", async (req, res, next) => {
   try{
     const product = await BeerModel.findById(req.params.id).populate("reviews.userId")
-    res.render("one-product", { product, scripts: ["addToCart"] })
+    res.render("one-product", { product, scripts: ["addToCart", "wishlist"] })
   }catch(err){
     next(err)
   }
