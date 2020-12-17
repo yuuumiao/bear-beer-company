@@ -78,7 +78,8 @@
   align-content: space-between;
   align-items: baseline;
 }
-.item-mini{
+
+#products_grid .item-mini{
   display: flex;
   flex-direction: column;
   min-width: 20rem;

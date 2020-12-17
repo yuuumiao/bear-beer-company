@@ -1,16 +1,27 @@
-<form method="post" action="/auth/signup" class="form">
-    <h1 class="title">Signup</h1>
-    <label for="email">email</label>
-    <input class="input" name="email" type="text" value="test@beer.com">
+<section class="sign form-container">
+    <header class="form-header">
+        <h1 class="form-title"> Welcome to Bear Beer Company </h1>
+        <p class="form-subtitle"> Authentic Paris-based craft beer </p>
+    </header>
 
-    <label for="password">password</label>
-    <input id="password" class="input" type="password" value="*****" name="password">
+    <form method="post" action="/auth/signup" class="form">
 
+        <div class="form-item-wrapper flexed-item">
+            <h1 class="title">Signup</h1>
+            <label for="email" class="label-ref">email</label>
+            <input class="input-text input" name="email" type="text" value="test@beer.com">
+        </div>
+        <div class="form-item-wrapper flexed-item">
 
-    <button class="btn">Click to sign up</button>
-    <hr>
-    <p>{{message}}</p>
-    <p>
-        Already have an account ? <a class="link" href="/auth/login">please login !</a>
-    </p>
-</form>
+            <label for="password" class="label-ref">password</label>
+            <input id="password" class="input-text input" type="password" value="*****" name="password">
+
+        </div>
+        <button class="signup-login-btn">Click to sign up</button>
+        <hr>
+        <p>{{message}}</p>
+        <p class="form-sub-infos">
+            Already have an account ? <a class="link" href="/auth/login">please login !</a>
+        </p>
+    </form>
+</section>

@@ -1,16 +1,16 @@
-<div class="one-product">
-        <a href="/collection">
-                <p><i class="fas fa-directions"></i> All Products</p>
-        </a>
-        <div class="one-product-container">
-                {{#with product}}
-                <div>
-                        <label for="cart-quantity">quantity</label>
-                        <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
-                                class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
-                </div>
+<a id="all-products-collection" href="/collection">
+        <p><i class="fas fa-directions"></i> All Products</p>
+</a>
 
-                {{> item_mini}}
+<div class="one-product-container">
+
+
+        {{#with product}}
+
+
+        {{> item_mini}}
+
+        <div class="one-product-review">
 
                 <h1>Reviews: </h1>
                 {{#unless this.reviews}}
@@ -25,11 +25,21 @@
                         </li>
                         {{/each}}
                 </ul>
+        </div>
 
+        <div class="one-product-sidebar">
+                <label for="cart-quantity" class="cart-quantity-label"></label>Choose the quantity to add to
+                cart</label>
+                <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
+                        class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
 
-                {{/with}}
                 <button class="btn-shopping">Add to cart</button>
                 <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
-                <p id="displayMessage">here</p>
+                <p id="displayMessage"></p>
+
         </div>
+
+        {{/with}}
+
+
 </div>
