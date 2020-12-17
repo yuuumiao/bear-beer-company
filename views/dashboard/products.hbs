@@ -1,103 +1,116 @@
-<div>
+<div class="collection-section">
+
         {{!-- Category --}}
-        <aside>
-                <h2>Filter by</h2>
-                <h4>Categories</h4>
-                <ul id="category-list" data-category="">
-                        <li class="category-list-item">
-                                <input id="allProducts" type="radio" class="checkbox" name="checkbox"
-                                        data-category="Allproducts" />
-                                <label for="allProducts">All products</label>
-                        </li>
-                        <li class="category-list-item">
-                                <input id="pilsner" type="radio" class="checkbox" name="checkbox"
-                                        data-category="Pilsner" />
-                                <label for="pilsner">Pilsner</label>
-                        </li>
+        <section class="filter-section">
+                <h1>Hundreds of beers at the heart of moments that bring people together!</h1>
+                <div class="filter-section-wrapper">
+                        <div class="filter-categories-section">
+                                <h4 class="filter-categories">Categories <i class="fas fa-sort-down"></i></h4>
+                                <ul id="category-list" data-category="">
+                                        <li class="category-list-item">
+                                                <input id="allProducts" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Allproducts" />
+                                                <label for="allProducts">All products</label>
+                                        </li>
+                                        <li class="category-list-item">
+                                                <input id="pilsner" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Pilsner" />
+                                                <label for="pilsner">Pilsner</label>
+                                        </li>
 
-                        <li class="category-list-item">
-                                <input id="dunkel" type="radio" class="checkbox" name="checkbox"
-                                        data-category="Dunkel" />
-                                <label for="dunkel">Dunkel</label>
-                        </li>
+                                        <li class="category-list-item">
+                                                <input id="dunkel" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Dunkel" />
+                                                <label for="dunkel">Dunkel</label>
+                                        </li>
 
-                        <li class="category-list-item">
-                                <input id="ale" type="radio" class="checkbox" name="checkbox" data-category="Ale" />
-                                <label for="ale">Ale</label>
-                        </li>
+                                        <li class="category-list-item">
+                                                <input id="ale" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Ale" />
+                                                <label for="ale">Ale</label>
+                                        </li>
 
-                        <li class="category-list-item">
-                                <input id="lager" type="radio" class="checkbox" name="checkbox" data-category="Lager" />
-                                <label for="lager">Lager</label>
-                        </li>
+                                        <li class="category-list-item">
+                                                <input id="lager" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Lager" />
+                                                <label for="lager">Lager</label>
+                                        </li>
 
-                        <li class="category-list-item">
-                                <input id="wheat" type="radio" class="checkbox" name="checkbox" data-category="Wheat" />
-                                <label for="wheat">Wheat</label>
-                        </li>
+                                        <li class="category-list-item">
+                                                <input id="wheat" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Wheat" />
+                                                <label for="wheat">Wheat</label>
+                                        </li>
 
-                        <li class="category-list-item">
-                                <input id="stout" type="radio" class="checkbox" name="checkbox" data-category="Stout" />
-                                <label for="stout">Stout</label>
-                        </li>
-
-
-                        <li class="category-list-item">
-                                <input id="porter" type="radio" class="checkbox" name="checkbox"
-                                        data-category="Porter" />
-                                <label for="porter">Porter</label>
-                        </li>
-
-                        <li class="category-list-item">
-                                <input id="marzen" type="radio" class="checkbox" name="checkbox"
-                                        data-category="Marzen" />
-                                <label for="marzen">Marzen</label>
-                        </li>
-                </ul>
-
-                <h4>Price</h4>
-
-                <ul id="price">
-                        <li class="low-high-price">
-                                <input id="low-to-high" type="radio" class="checkbox" name="checkbox"
-                                        data-price="low" />
-                                <label for="low-to-high">Low to high</label>
-                        </li>
-                        <li class="high-low-price">
-                                <input id="high-to-low" type="radio" class="checkbox" name="checkbox"
-                                        data-price="High" />
-                                <label for="high-to-low">High to Low</label>
-                        </li>
-                </ul>
-
-                <ul id="price-list" data-price="">
-                        <li class="price-list-item">
-                                <input id="under2" type="radio" class="checkbox" name="checkbox" data-price="2" />
-                                <label for="under2">under $2</label>
-                        </li>
-
-                        <li class="price-list-item">
-                                <input id="under4" type="radio" class="checkbox" name="checkbox" data-price="4" />
-                                <label for="under4">from $2 to $4</label>
-                        </li>
-
-                        <li class="price-list-item">
-                                <input id="over4" type="radio" class="checkbox" name="checkbox" data-price="6" />
-                                <label for="over4">over from $4</label>
-                        </li>
-
-                </ul>
+                                        <li class="category-list-item">
+                                                <input id="stout" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Stout" />
+                                                <label for="stout">Stout</label>
+                                        </li>
 
 
-        </aside>
-        {{!--
-        <section>
-                <select name="sorting" id="sorting" name="Sorting">
-                        <option selected="selected" value="price-new">New products</option>
-                        <option value="price-asc">Ascend Price </option>
-                        <option value="price-desc">Descend Price</option>
-                </select>
-        </section> --}}
+                                        <li class="category-list-item">
+                                                <input id="porter" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Porter" />
+                                                <label for="porter">Porter</label>
+                                        </li>
+
+                                        <li class="category-list-item">
+                                                <input id="marzen" type="radio" class="checkbox" name="checkbox"
+                                                        data-category="Marzen" />
+                                                <label for="marzen">Marzen</label>
+                                        </li>
+
+                                </ul>
+                        </div>
+
+                        <div class="filter-price-section">
+                                <h4>Price <i class="fas fa-sort-down"></i></h4>
+
+                                <ul id="price">
+                                        <li class="low-high-price">
+                                                <input id="low-to-high" type="radio" class="checkbox" name="checkbox"
+                                                        data-price="low" />
+                                                <label for="low-to-high">Low to high</label>
+                                        </li>
+                                        <li class="high-low-price">
+                                                <input id="high-to-low" type="radio" class="checkbox" name="checkbox"
+                                                        data-price="High" />
+                                                <label for="high-to-low">High to Low</label>
+                                        </li>
+                                </ul>
+
+                                <ul id="price-list" data-price="">
+                                        <li class="price-list-item">
+                                                <input id="under2" type="radio" class="checkbox" name="checkbox"
+                                                        data-price="2" />
+                                                <label for="under2">under $2</label>
+                                        </li>
+
+                                        <li class="price-list-item">
+                                                <input id="under4" type="radio" class="checkbox" name="checkbox"
+                                                        data-price="4" />
+                                                <label for="under4">from $2 to $4</label>
+                                        </li>
+
+                                        <li class="price-list-item">
+                                                <input id="over4" type="radio" class="checkbox" name="checkbox"
+                                                        data-price="6" />
+                                                <label for="over4">over from $4</label>
+                                        </li>
+
+                                </ul>
+                        </div>
+
+                        <form id="search" class="Search" action="">
+                                <input type="search" placeholder="Search by name beer" name="search" value=""
+                                        autocomplete />
+                                <a href=""><i class="fas fa-search-plus"></i></a>
+                        </form>
+                </div>
+
+
+        </section>
 
         {{!-- PRODUCTS --}}
         <section class="products-wrapper">
