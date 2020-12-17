@@ -6,6 +6,7 @@ btnWishlist.onclick = handleWishlist;
 
 async function handleWishlist (){
     
+    
     try{
         const productId = btnWishlist.getAttribute("data-wishlist-id");
         // console.log(productId)
