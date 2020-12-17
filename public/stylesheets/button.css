@@ -15,20 +15,30 @@ button:focus {
 /*--ARROW BUTTON--*/
 
 .button-primary {
-  color: white;
-  background: #006c5c;
-  border: 1px solid;
-  font-size: 1rem;
-  transition: all 0.2s ease-in;
-  transition-property: color, background;
-  border-radius: 0.2rem;
-  padding: 0.5rem 0.8rem;
+  border: none;
+  background: var(--main-green);
+  color: #ffffff !important;
+  font-weight: 300;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 1%;
+  font-size: 0.8rem;
+  display: block;
+  margin: 1%;
+  width: 40%;
 }
 
 .button-primary:hover {
-  color: #006c5c;
+  color: var(--main-green) !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
   background: white;
-  border: 1px solid;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
 }
 
 .button-ternary {

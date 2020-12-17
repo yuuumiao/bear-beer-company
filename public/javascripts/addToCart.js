@@ -12,7 +12,7 @@ for (let i = 0; i < btnAddToCart.length; i++) {
                         await axios.post(`/shoppingcart/${productId}`, { quantity, productId });
                         const body = document.querySelectorAll(".one-product-container");
                         body[0].innerHTML += `
-                        <div class="show-success-add"><p>Product is added to shopping cart</p></div>
+                        <div ><p class="displayMessage">Product is added to shopping cart</p></div>
                         `
                         // alert("coucou already added")
                         
