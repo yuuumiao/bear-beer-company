@@ -1,65 +1,36 @@
-<div>
-
-        {{!-- <form id="search" class="Search" action=""> --}}
-        {{!-- <input type="search" placeholder="Search by name beer" name="search" value="" autocomplete /> --}}
-        {{!-- <a href=""><i class="fas fa-search-plus"></i></a> --}}
-        {{!-- </form> --}}
-        <div id="match-list"></div>
-
+<div class="heading-section">
+        <div class="logo">
+                <img src="/images/beer-logo.png" alt="beer">
+        </div>
         <nav>
-                <div class="logo">
-                        <img src="/images/beer-logo.png" alt="beer">
-                </div>
-
-                <div class="nav-log">
-
-                        <a class="active" href="/">Home</a>
-                        <a href="/collection">Products</a>
-
-
-                        {{#if isAdmin}}
-                        <p>Manage products</p>
-                        <ul>
-                                <li><a href="/dashboard">Dashboard</a></li>
-                                <li><a href="/dashboard/products-manage">Manage</a></li>
-                                <li><a href="/dashboard/product-add">Add new
-                                                product</a></li>
-                        </ul>
-                        {{/if}}
+                <ul>
+                        <li><a class="active" href="/">Home</a></li>
+                        <li><a href="/collection">Products</a></li>
 
                         {{#if isLoggedIn}}
 
-                        <div id="user">
-
-                                <a href="/user/profile">My Profile</a>
-
-                                <a href="/auth/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
-                                        Log out
-                                </a>
-
-                        </div>
+                        <li> <a href="/user/wishlist/list">Wishlist</a></li>
 
                         {{/if}}
 
                         {{#unless isLoggedIn}}
-
-                        <div id="auth">
-
-
-                                <a href="/auth/signup" id="nav_login" class="button-ternary flexed-item nav-end-item">
-                                        Sign up
-                                </a>
-
-                                <a href="/auth/login" id="nav_login" class="button-ternary flexed-item nav-end-item">
-                                        Log in
-                                </a>
-
-                        </div>
+                        <li> <a href="/auth/signup" id="nav_login" class="">Sign up </a></li>
+                        <li> <a href="/auth/login" id="nav_login" class="">Log in</a></li>
                         {{/unless}}
-                        <a href="/shoppingcart">cart</a>
-                        <a href="/user/wishlist/list">wishlist</a>
 
-                </div>
+                        {{#if isAdmin}}
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/dashboard/products-manage">Manage</a></li>
+                        <li><a href="/dashboard/product-add">Add new product</a></li>
+                        {{/if}}
+
+                        {{#if isLoggedIn}}
+                        <li><a href="/auth/logout" id="nav_logout" class="">Log out</a> </li>
+                        {{/if}}
+
+                        <li> <a href="/shoppingcart"><i class="fas fa-cart-plus"></i></a></li>
+
+                </ul>
 
         </nav>
 </div>

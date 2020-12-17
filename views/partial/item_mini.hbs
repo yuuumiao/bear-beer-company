@@ -1,13 +1,15 @@
-<a href="/collection/{{this._id}}" class="product-item-wrapper">
-        <div class="product-img">
-                <img src="{{this.image}}" alt="{{this.name}}">
-        </div>
-        <div class="product-info">
-                <p class="product-name">{{this.name}}</p>
-                <p class="product-cat">Category: {{this.category}}</p>
-                <p class="product-price">Price: $ {{this.price}}</p>
-        </div>
-        <div>Average rate: {{{stars (average this.reviews)}}}</div>
-        <p class="product-description">{{this.description}}</p>
+<div class="item-mini">
+        <a href="/collection/{{this._id}}" class="product-item-wrapper">
+                <div class="product-img">
+                        <img src="{{this.image}}" alt="{{this.name}}">
+                </div>
+                <div class="product-info">
+                        <p class="product-name">{{this.name}}</p>
+                        <p class="product-cat">Category: {{this.category}}</p>
+                        <p class="product-price">Price: $ {{this.price}}</p>
+                </div>
+                <div class="products-rates">Average rate: {{{stars (average this.reviews)}}}</div>
+                <p class="product-description">{{this.description}}</p>
 
-</a>
+        </a>
+</div>

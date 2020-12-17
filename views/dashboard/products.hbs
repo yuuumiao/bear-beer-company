@@ -102,10 +102,8 @@
                                 </ul>
                         </div>
 
-                        <form id="search" class="Search" action="">
-                                <input type="search" placeholder="Search by name beer" name="search" value=""
-                                        autocomplete />
-                                <a href=""><i class="fas fa-search-plus"></i></a>
+                        <form id="search" class="search-bar" action="">
+                                <input type="search" placeholder="   Search by name beer" name="search" value="" autocomplete />
                         </form>
                 </div>
 
@@ -116,12 +114,9 @@
         <section class="products-wrapper">
                 <div class="products-infos">
                         <h4 id="products-title">
-
                                 Products: <span id="products_count" class="products-count">({{products.length}})</span>
                         </h4>
-
                 </div>
-
 
                 {{#unless products}}
                 <p>Sorry, no products yet !</p>
