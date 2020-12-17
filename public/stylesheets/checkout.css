@@ -1,0 +1,11 @@
+/* form thanks  */
+.thanks{
+        text-align: center;
+        margin: 15rem auto;
+        font-size: 3rem;
+        font-weight: 900;
+      }
+      .thanks h1{
+        font-size: 5rem;
+        margin-bottom: 5rem;
+      }

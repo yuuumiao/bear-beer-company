@@ -9,37 +9,39 @@
 
 
         {{> item_mini}}
+        <div class="reivews-addTocart">
+                <div class="one-product-review">
 
-        <div class="one-product-review">
+                        <h1>Reviews: </h1>
+                        {{#unless this.reviews}}
+                        <p>No reviews</p>
+                        {{/unless}}
+                        <ul>
+                                {{#each this.reviews}}
+                                <li>
+                                        <p>{{this.userId.firstName}}: <span>:: {{this.comment}}</span></p>
+                                        <p>{{{stars this.rate}}}</p>
 
-                <h1>Reviews: </h1>
-                {{#unless this.reviews}}
-                <p>No reviews</p>
-                {{/unless}}
-                <ul>
-                        {{#each this.reviews}}
-                        <li>
-                                <p>{{this.userId.firstName}}: <span>:: {{this.comment}}</span></p>
-                                <p>{{{stars this.rate}}}</p>
+                                </li>
+                                {{/each}}
+                        </ul>
+                </div>
 
-                        </li>
-                        {{/each}}
-                </ul>
+                <div class="one-product-sidebar">
+                        <label for="cart-quantity" class="cart-quantity-label"></label>Choose the quantity to add to
+                        cart</label>
+                        <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
+                                class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
+
+                        <button class="btn-shopping">Add to cart</button>
+                        <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
+                        <p id="displayMessage"></p>
+
+                </div>
+
+                {{/with}}
         </div>
 
-        <div class="one-product-sidebar">
-                <label for="cart-quantity" class="cart-quantity-label"></label>Choose the quantity to add to
-                cart</label>
-                <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
-                        class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
-
-                <button class="btn-shopping">Add to cart</button>
-                <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
-                <p id="displayMessage"></p>
-
-        </div>
-
-        {{/with}}
 
 
 </div>
