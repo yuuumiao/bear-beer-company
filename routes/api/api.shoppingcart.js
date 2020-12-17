@@ -24,11 +24,16 @@ router.get("/", async (req, res, next) => {
 router.get("/checkout", async (req, res, next) => {
         const user = req.session.currentUser._id;
         const cart = await CartModel.find();
-        const cartId = cart[0]._id;
-        if(PendingModel)
-        await PendingModel.create({ orders: { user: user, cartId: cartId } });
-        await CartModel.updateOne({items:[]})
-        res.render("checkout");
+        try {
+                const cartId = cart[0]._id;
+                if (PendingModel)
+                        await PendingModel.create({ orders: { user: user, cartId: cartId } });
+                await CartModel.updateOne({ items: [] })
+                res.render("checkout");
+        } catch (err) {
+                next(err, {message: "NO BEER IN YOUR CART"})
+        }
+
 });
 
 
