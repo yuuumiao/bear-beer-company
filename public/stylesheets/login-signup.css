@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.7rem;
 }
 
 .sign.form-container .form-title {
@@ -34,26 +34,37 @@
 }
 
 #form_user .form-item-wrapper {
-  width: 30%;
+  width: 30vw;
 }
 
-.form-subtitle {
+
+/* button */
+
+.signup-login-btn {
+  border: none;
+  background: var(--main-green);
+  color: #ffffff !important;
+  font-weight: 300;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 1%;
+  font-size: 0.8rem;
+  display: block;
+  margin: 1%;
+  width: 17rem;
 }
 
-.form-sub-infos {
-  font-size: 0.9rem;
-}
+.signup-login-btn:hover{
 
-#form_user .button-primary {
-  margin: 1.5rem 0 1rem 0;
-}
+color: var(--main-green) !important;
+font-weight: 700 !important;
+letter-spacing: 3px;
+background: white;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+transition: all 0.3s ease 0s;
 
-.button-link-form {
-  color: rgb(52, 52, 255);
-  padding-bottom: 0.1rem;
-}
-
-.button-link-form:hover {
-  color: rgb(52, 52, 255);
-  border-bottom: 1px solid rgb(52, 52, 255);
 }

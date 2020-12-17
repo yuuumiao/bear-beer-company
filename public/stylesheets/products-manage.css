@@ -5,6 +5,7 @@ font-size: 0.9em;
 min-width: 400px;
 border-radius: 5px 5px 0 0;
 overflow: hidden;
+width: 100%;
 }
 
 .content-tabel thead tr {

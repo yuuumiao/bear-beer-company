@@ -1,7 +1,7 @@
 <div class="manage-products-wrapper">
 
         <h3 class="manage-products-title">Your cart</h3>
-        <table class="product-manage-table">
+        <table class="product-manage-table content-tabel">
                 <thead>
                         <tr class="table-row">
                                 <th class="table-head">Image</th>
@@ -15,8 +15,8 @@
                 <tbody>
                         {{#each productsAdded}}
                         <tr class="table-row table-added-products">
-                                  <td class="table-division">
-                                        <div> <img src=" {{this.productId.image}}" alt="beer"></div>
+                                <td class="table-division">
+                                        <div> <img src=" {{this.productId.image}}" alt="beer" class="table-image"></div>
                                 </td>
                                 <td class="table-division">
                                         <div>{{this.productId.name}}</div>
@@ -60,6 +60,9 @@
                                 <td class="table-division total">
                                         sadasda
                                 </td>
+                                <td class="table-division">
+                                </td>
+
                         </tr>
 
                 </tbody>
