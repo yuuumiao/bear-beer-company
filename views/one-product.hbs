@@ -3,15 +3,15 @@
 </a>
 <div class="one-product-container">
         {{#with product}}
-                <div>
-                        <label for="cart-quantity">quantity</label>
-                        <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
-                                class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
-                </div>
-                <button class="btn-shopping">Add to cart</button>
-                <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
-                <p id="displayMessage">here</p>
-  
+        <div>
+                <label for="cart-quantity">quantity</label>
+                <input id="cart-quantity" type="number" min="1" value="1" name="quantity" required
+                        class="input-shopping {{this._id}}" data-shopping-id="{{this._id}}">
+        </div>
+
+
+
+
 
         {{> item_mini}}
 
@@ -31,4 +31,7 @@
 
 
         {{/with}}
+        <button class="btn-shopping">Add to cart</button>
+        <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
+        <p id="displayMessage">here</p>
 </div>

@@ -1,3 +1,10 @@
+.big-container,
+.product-manage-wrapper,
+.flexed-item {
+  display: flex;
+  justify-content: center;
+}
+
 .add-product-form,
 .edit-product-form {
   width: 30%;
