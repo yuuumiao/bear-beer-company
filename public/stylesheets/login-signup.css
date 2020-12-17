@@ -38,35 +38,3 @@
 .form_user .form-item-wrapper {
   width: 70%;
 }
-
-
-/* button */
-
-.signup-login-btn {
-  border: none;
-  background: var(--main-green);
-  color: #ffffff !important;
-  font-weight: 300;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  border-radius: 3px;
-  display: block;
-  transition: all 0.3s ease 0s;
-  margin-bottom: 1%;
-  font-size: 0.8rem;
-  display: block;
-  margin: 1%;
-  width: 17rem;
-}
-
-.signup-login-btn:hover{
-
-color: var(--main-green) !important;
-font-weight: 700 !important;
-letter-spacing: 3px;
-background: white;
--webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-transition: all 0.3s ease 0s;
-
-}
