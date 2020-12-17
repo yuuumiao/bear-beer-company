@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center;
   padding-top: 9%;
-  height: calc(100vh - (84px));
+  font-size: 1.2rem;
+  width: 30%;
+  margin: 1rem auto;
 }
 
 .form-header {
@@ -21,11 +23,11 @@
   margin-bottom: 0.5rem;
 }
 
-#form_user .form-item-wrapper:last-child {
+.form_user .form-item-wrapper:last-child {
   margin-bottom: 1.2rem;
 }
 
-#form_user {
+.form_user {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,8 +35,8 @@
   width: 100%;
 }
 
-#form_user .form-item-wrapper {
-  width: 30vw;
+.form_user .form-item-wrapper {
+  width: 70%;
 }
 
 
