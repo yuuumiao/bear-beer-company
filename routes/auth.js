@@ -63,7 +63,7 @@ router.post('/login', (req, res, next) => {
   UserModel.findOne({ email })
     .then(user => {
       if (!user) {
-        res.render('auth/login', { message: 'Email is not registered. Try with other email.' });
+        res.render('auth/login', { message: 'Email is not registered. Try with other email.'});
         return;
       } else if (bcrypt.compareSync(password, user.passwordHash)) {  
 
@@ -90,7 +90,7 @@ router.get("/logout", async (req, res) => {
  
     console.log("logout", req.session.currentUser);
     req.session.destroy(function (err) {
-      res.redirect("/auth/login", {titlePage:"LogOut"});
+      res.redirect("/auth/login");
     });
 });
 
