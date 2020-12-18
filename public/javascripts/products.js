@@ -26,6 +26,7 @@ function displayProdGrid(products) {
                 for (let i = 0; i < products.length; i++) {
                         console.log("check")
                         productsGrid.innerHTML += `
+                        <div class="item-mini">
                         <a href="/collection/${products[i]._id}" class="product-item-wrapper">
                         <div class="product-img">
                                 <img src="${products[i].image}" alt="${products[i].name}">
@@ -34,11 +35,14 @@ function displayProdGrid(products) {
                                 <p class="product-name">${products[i].name}</p>
                                 <p class="product-cat">Category: ${products[i].category}</p>
                                 <p class="product-price">Price: $ ${products[i].price}</p>
+
+                                <p class="product-description">${products[i].description}</p>
                         </div>
         
                         <p class="product-description">${products[i].description}</p>
         
                         </a>
+                        </div>
                         `
                 }
         } else {
