@@ -1,13 +1,27 @@
-.footer {
+footer  {
   bottom: 0;
-  position: fixed;
+  position: sticky;
   padding: 0.5rem;
   height: 31px;
   width: 100%;
   background: #006c5c;
-  color: rgb(146, 7, 7);
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
 }
 
-footer p {
-  font-size: 0.8rem;
+.footer.title{
+  font-size: 1.5rem;
+}
+
+div.footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer.socialmedia{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
 }
