@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const UserModel = require("./../models/User");
 const BeerModel = require("./../models/Product");
-const { db } = require('./../models/Product');
 
 /* GET users listing. */
 
@@ -16,7 +15,7 @@ router.get("/profile", (req,res,next) => {
   const user = req.session.currentUser
   console.log("user", user);
 
-  res.render('profile', {user : req.session.currentUser, scripts: ["address"]})
+  res.render('profile', {user : req.session.currentUser, scripts: ["address"], titlePage:"Profile"})
 })
 
 
@@ -26,7 +25,7 @@ router.post("/profile", async(req,res,next) => {
   const update = await UserModel.findByIdAndUpdate(req.session.currentUser._id, req.body, {new: true})
   req.session.currentUser = update;
 
-  res.render('profile', {user : update, scripts: ["address"], message:"You have successful updated your profile"})
+  res.render('profile', {user : update, scripts: ["address"], message:"You have successful updated your profile", titlePage:"Profile"})
 })
 
 
@@ -54,7 +53,7 @@ router.get("/wishlist/list", async(req,res,next) => {
 
     const wishlist = await UserModel.findById(req.session.currentUser._id).populate("wishlists")
     // console.log("user, wishlist", wishlist);
-    res.render("wishlist", {user: wishlist});
+    res.render("wishlist", {user: wishlist, titlePage:"WishList"});
 
   }catch(err){
     next(err)

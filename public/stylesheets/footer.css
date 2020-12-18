@@ -1,6 +1,6 @@
 footer  {
   position: sticky;
-  margin-top: 15vh;
+  margin-top: 1vh;
   /* position: relative;
   height: 20vh;
   margin-top: -20vh; */
@@ -10,11 +10,15 @@ footer  {
   background: white;
   color: black;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   flex: 1;
   margin-bottom: 5vh;
 }
-
+footer div{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .footer.title{
   font-size: 1.5rem;
   margin-bottom: 0.5rem;

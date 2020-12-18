@@ -9,7 +9,7 @@ const saltRounds = 10;
 
 // .get() route ==> to display the signup form to users
 router.get("/signup", async (req, res, next) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {titlePage:"SignUp"});
 });
 
 
@@ -42,7 +42,7 @@ router.post('/signup', (req, res, next) => {
 // .get() route ==> to display the login form to users
 router.get('/login',  (req, res) => {
   //
-  res.render('auth/login')
+  res.render('auth/login', {titlePage:"Login"})
 });
 
 // .post() login route ==> to process form data
@@ -90,7 +90,7 @@ router.get("/logout", async (req, res) => {
  
     console.log("logout", req.session.currentUser);
     req.session.destroy(function (err) {
-      res.redirect("/auth/login");
+      res.redirect("/auth/login", {titlePage:"LogOut"});
     });
 });
 

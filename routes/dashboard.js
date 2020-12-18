@@ -11,7 +11,7 @@ router.use(protectAdminRoute);
 // GET to show all the products
 router.get("/", async (req, res, next) => {
   const products = await BeerModel.find();
-  res.render("dashboard/products", { products, scripts: ["products"] });
+  res.render("dashboard/products", { products, scripts: ["products"], titlePage:"Products" });
 });
 
 // GET to manage all the products
@@ -19,7 +19,7 @@ router.get("/products-manage", async (req, res, next) => {
   try {
     const pending = await PendingModel.find().populate("orders.user").populate("orders.cartId")
     const products = await BeerModel.find();
-    res.render("dashboard/products-manage", { products, scripts: ["products-manage"] });
+    res.render("dashboard/products-manage", { products, scripts: ["products-manage"], titlePage:"Manage" });
     // res.json(pending)
   } catch (err) {
     next(err);
@@ -29,7 +29,7 @@ router.get("/products-manage", async (req, res, next) => {
 // GET to add new the products
 router.get("/product-add", (req, res, next) => {
   try {
-    res.render("dashboard/product-add");
+    res.render("dashboard/product-add", {titlePage:"Add"});
   } catch (err) {
     next(err);
   }
@@ -52,7 +52,7 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
 router.get("/product-edit/:id", async (req, res, next) => {
   const product = await BeerModel.findById(req.params.id);
   // console.log(product)
-  res.render("dashboard/product-edit", { product });
+  res.render("dashboard/product-edit", { product, titlePage:"Edit" });
 });
 
 // GET to post the edit products
