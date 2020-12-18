@@ -1,5 +1,5 @@
 .one-product-main-container{
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .one-product-container {
@@ -41,7 +41,7 @@
 }
 
 /* reviews */
- .reivews-addTocart{
+ /* .reivews-addTocart{
   position: absolute;
   bottom: 0;
   left: 37rem;
@@ -49,7 +49,7 @@
 .one-product-review {
   width: 17rem;
   margin-bottom: 5rem;
-}
+} */
 
 /* quantity input */
  .one-product-sidebar .cart-quantity-label {
@@ -97,7 +97,7 @@
 }
 
 /* show message  */
-.displayMessage {
+/* .displayMessage {
   border: none;
   background: var(--main-green);
   color: #ffffff !important;
@@ -127,7 +127,7 @@
     opacity: 0;
     display: none;
   }
-}  
+}   */
 
 
 
