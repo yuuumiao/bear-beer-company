@@ -10,3 +10,8 @@
   font-size: 5rem;
   margin-bottom: 5rem;
 }
+
+#checkout.button-primary{
+  width: 100%;
+  max-width: 20rem;
+}
