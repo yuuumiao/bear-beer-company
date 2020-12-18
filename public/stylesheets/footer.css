@@ -1,27 +1,87 @@
 footer  {
-  bottom: 0;
   position: sticky;
-  padding: 0.5rem;
+  margin-top: 15vh;
+  /* position: relative;
+  height: 20vh;
+  margin-top: -20vh; */
+  padding: 2rem;
   height: 31px;
   width: 100%;
-  background: #006c5c;
+  background: white;
   color: black;
   display: flex;
   justify-content: space-around;
   flex: 1;
+  margin-bottom: 5vh;
 }
 
 .footer.title{
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-div.footer{
+div.session{
   display: flex;
   flex-direction: column;
 }
 
-.footer.socialmedia{
+div.socialmedia{
   display: flex;
   flex: 1;
-  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.socialmedia a{
+  margin-right: 3rem;
+}
+
+.footer-form-item-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#subscribe-newslette{
+  padding: 0.7rem;
+  border: 1px solid #006c5c;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.btn-subscribe-newsletter{
+  border: none;
+  background: var(--main-green);
+  color: #ffffff !important;
+  font-weight: 300;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 1%;
+  font-size: 0.8rem;
+  display: block;
+  margin: 1%;
+  width: 10rem;
+  margin: 1px auto;
+}
+
+
+.btn-subscribe-newsletter:hover{
+
+  color: var(--main-green) !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background: white;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+
+}
+
+#btn-input-newsletter{
+    margin-top: 1vh;
+    display: flex;
+
+
 }

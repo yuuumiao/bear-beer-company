@@ -36,8 +36,10 @@ width: 100%;
 }
 
 
-
-
+/* this is for placing the footer always at the bottom of the next loading page  */
+.manage-products-wrapper{
+  min-height: 100vh;
+}
 
 
 

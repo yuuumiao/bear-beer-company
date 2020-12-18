@@ -8,6 +8,7 @@
   font-size: 1.2rem;
   width: 30%;
   margin: 1rem auto;
+  min-height: 100vh;
 }
 
 .form-header {
@@ -18,9 +19,11 @@
 }
 
 .sign.form-container .form-title {
-  font-size: 2.3em;
-  font-weight: 700;
+  font-size: 2em;
+  font-weight: 500;
   margin-bottom: 0.5rem;
+  line-height: 120%;
+  text-align: center;
 }
 
 .form_user .form-item-wrapper:last-child {
