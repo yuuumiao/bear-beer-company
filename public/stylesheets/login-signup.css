@@ -41,3 +41,14 @@
 .form_user .form-item-wrapper {
   width: 70%;
 }
+@media (max-width:1100px) {
+  .sign.form-container {
+    width: 50%;
+  }
+}
+@media (max-width:800px) {
+  .sign.form-container {
+    width: 80%;
+  }
+  
+}
