@@ -11,7 +11,8 @@
   margin-bottom: 5rem;
 }
 
-#checkout.button-primary{
+#checkout.button-primary, .checkout.button-primary{
   width: 100%;
   max-width: 20rem;
+  text-align: center;
 }

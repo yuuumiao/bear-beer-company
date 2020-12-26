@@ -11,16 +11,17 @@ router.use(protectAdminRoute);
 // GET to show all the products
 router.get("/", async (req, res, next) => {
   const products = await BeerModel.find();
-  res.render("dashboard/products", { products, scripts: ["products"], titlePage:"Products" });
+  res.render("dashboard/products", { products, scripts: ["products"], titlePage: "Products" });
 });
 
 // GET to manage all the products
 router.get("/products-manage", async (req, res, next) => {
   try {
-    const pending = await PendingModel.find().populate("orders.user").populate("orders.cartId")
     const products = await BeerModel.find();
-    res.render("dashboard/products-manage", { products, scripts: ["products-manage"], titlePage:"Manage" });
-    // res.json(pending)
+    let pending = await PendingModel.find()
+      .populate({ path: "cartId.productId", model: "Beer", select: ['name', 'price'] })
+      .populate("user")
+    res.render("dashboard/products-manage", { products, pending, scripts: ["products-manage"], titlePage: "Manage" });
   } catch (err) {
     next(err);
   }
@@ -29,7 +30,7 @@ router.get("/products-manage", async (req, res, next) => {
 // GET to add new the products
 router.get("/product-add", (req, res, next) => {
   try {
-    res.render("dashboard/product-add", {titlePage:"Add"});
+    res.render("dashboard/product-add", { title: "Add" });
   } catch (err) {
     next(err);
   }
@@ -52,13 +53,13 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
 router.get("/product-edit/:id", async (req, res, next) => {
   const product = await BeerModel.findById(req.params.id);
   // console.log(product)
-  res.render("dashboard/product-edit", { product, titlePage:"Edit" });
+  res.render("dashboard/product-edit", { product, titlePage: "Edit" });
 });
 
 // GET to post the edit products
 router.post("/product-edit/:id", fileUploader.single('image'), async (req, res, next) => {
   const newBeer = { ...req.body };
-  if (req.file) {newBeer.image = req.file.path};
+  if (req.file) { newBeer.image = req.file.path };
   try {
     await BeerModel.findByIdAndUpdate(req.params.id, newBeer, { new: true });
     res.redirect("/dashboard/products-manage");

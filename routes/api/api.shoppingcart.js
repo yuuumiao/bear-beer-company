@@ -8,12 +8,18 @@ const PendingModel = require("./../../models/PendingOrder");
 
 //Get shopping cart page
 router.get("/", async (req, res, next) => {
+        let productsAdded = '';
         try {
-                const carts = await CartModel.find().populate("items.productId")
-                const productsAdded = carts[0].items;
-                // res.json(carts)
-                console.log(productsAdded);
-                res.render("shopping-cart", { productsAdded, scripts: ["shopping-cart"] });
+                const getCarts = await CartModel.find();
+                console.log(getCarts)
+                if (getCarts.length !== 0) {
+                        const carts = await CartModel.find().populate("items.productId")
+                        productsAdded = carts[0].items;
+                        res.render("shopping-cart", { productsAdded, scripts: ["shopping-cart"] });
+                } else {
+                        res.render("shopping-cart", { productsAdded, scripts: ["shopping-cart"] });
+                }
+
         } catch (err) {
                 next(err)
         }
@@ -23,18 +29,32 @@ router.get("/", async (req, res, next) => {
 //GET Checkout
 router.get("/checkout", async (req, res, next) => {
         const user = req.session.currentUser._id;
-        const cart = await CartModel.find();
+        const cart = await CartModel.find().populate("items.productId");
+        // console.log(cart[0].items)
+        // res.json(cart[0].items)
         try {
-                const cartId = cart[0]._id;
-                if (PendingModel)
-                        await PendingModel.create({ orders: { user: user, cartId: cartId } });
-                await CartModel.updateOne({ items: [] })
+                await PendingModel.create({ user: user, cartId: cart[0].items });
+                await CartModel.remove({});
                 res.render("checkout");
         } catch (err) {
-                next(err, {message: "NO BEER IN YOUR CART"})
+                next(err, { message: "NO BEER IN YOUR CART" })
         }
 
 });
+//check profile
+router.get("/checkout/checkprofile", async (req, res, next) => {
+        // const user = req.session.currentUser
+        res.render('checkprofile', { user: req.session.currentUser, scripts: ["address"], titlePage: "Check Profile" })
+});
+
+// GET for user/profile with req.session.currentUser
+router.post("/checkout/checkprofile", async (req, res, next) => {
+
+        const update = await UserModel.findByIdAndUpdate(req.session.currentUser._id, req.body, { new: true })
+        req.session.currentUser = update;
+
+        res.render('checkprofile', { user: update, scripts: ["address"], message: "You have successful updated your profile", titlePage: "Check Profile" })
+})
 
 
 router.post("/:id", async (req, res, next) => {

@@ -16,7 +16,10 @@
     display: none;
     /* background: pink; */
 }
-
+.address{
+    display: flex;
+    flex-direction: column;
+}
 
 .profile-container .form-item-wrapper{
     width: 50vW;
@@ -30,7 +33,7 @@
     font-size: 0.9rem;
 }
 
-#profile-container-btn{
+#profile-container-btn, .profile-container-btn{
     border: none;
     background: var(--main-green);
     color: #ffffff !important;
@@ -45,12 +48,14 @@
     display: block;
     margin: 1%;
     width: 17rem;
+    height: 3rem;
     margin: 1px auto;
+    text-align: center;
 
 }
 
 
-#profile-container-btn:hover{
+#profile-container-btn:hover, .profile-container-btn:hover{
 
     color: var(--main-green) !important;
     font-weight: 700 !important;
@@ -60,4 +65,8 @@
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.3s ease 0s;
 
+}
+
+.message{
+    color: var(--main-green);
 }

@@ -58,12 +58,8 @@ app.use('/shoppingcart', require("./routes/api/api.shoppingcart"));
 
 
 
-// expose login status to the hbs templates
-// app.use(require("./middlewares/exposeLoginStatus"));
-
-
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
-app.locals.site_url = process.env.SITE_URL;
+// app.locals.site_url = process.env.SITE_URL;
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

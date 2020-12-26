@@ -37,13 +37,21 @@
 
                                 <button class="btn-shopping">Add to cart</button>
                                 <p id="displayMessage2"></p>
-                                <button id="btn-wishlist" data-wishlist-id="{{this._id}}">Add to my wishList</button>
 
-                                <p id="displayMessage"></p>
+
 
                         </div>
 
                         {{/with}}
+                        <div class="one-product-sidebar">
+                                {{#if isLoggedIn}}
+                                <button id="btn-wishlist" data-wishlist-id="{{product._id}}">Add to my wishList</button>
+                                {{else}}
+                                <a class="btn-wishlist" href="/auth/login">Login to add this beer to your WishList</a>
+                                {{/if}}
+                                <p id="displayMessage"></p>
+                        </div>
+
                 </div>
 
 

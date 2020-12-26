@@ -41,7 +41,7 @@
                         {{/each}}
                         {{#unless productsAdded}}
                         <tr class="table-row">
-                                <td colspan="5">No beer yet</td>
+                                <td colspan="5" class="message">No beer yet</td>
                         </tr>
                         {{/unless}}
                         <tr class="table-row">
@@ -68,9 +68,12 @@
                 </tbody>
         </table>
         {{#unless isLoggedIn}}
-        <p><a href="/auth/login">Log in</a> before check out</p>
+        <p><a href="/auth/login" style="color: red;">Log in</a> before check out</p>
         {{/unless}}
         {{#if isLoggedIn}}
-        <a href="/shoppingcart/checkout" id="checkout" class="button-primary" >Proceed to checkout</a>
+        {{#if productsAdded}}
+        {{!-- <a href="/shoppingcart/checkout" id="checkout" class="button-primary">Proceed to checkout</a> --}}
+        <a href="/shoppingcart/checkout/checkprofile" class="button-primary checkout">Proceed to checkout</a>
+        {{/if}}
         {{/if}}
 </div>

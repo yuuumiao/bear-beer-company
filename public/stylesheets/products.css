@@ -2,10 +2,9 @@
   margin-top: 8rem;
 
 } */
-.filter-section{
+.filter-section {
   background-color: var(--main-black);
-  background-image:  url("https://i.dailymail.co.uk/1s/2019/09/16/14/18535700-0-image-a-50_1568639482087.jpg");
-  margin: 1rem 1rem;
+  background-image: url("https://i.dailymail.co.uk/1s/2019/09/16/14/18535700-0-image-a-50_1568639482087.jpg");
   background-position: top;
   background-size: cover;
   height: 60vh;
@@ -14,19 +13,21 @@
   flex-direction: column;
   padding: 8rem;
 }
-.filter-section h1{
+
+.filter-section h1 {
   font-size: 4rem;
   font-weight: 700;
-  margin:  3% 20%;
+  margin: 3% 20%;
   text-align: center;
   line-height: 100%;
 }
-.filter-section-wrapper{
+
+.filter-section-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.filter-section-wrapper h4{
+.filter-section-wrapper h4 {
   background-color: rgba(70, 83, 70, 0.5);
   padding: 1rem;
   text-align: center;
@@ -35,54 +36,61 @@
   font-size: 1.5rem;
   font-weight: 300;
 }
-.filter-section-wrapper ul{
+
+.filter-section-wrapper ul {
   display: none;
   font-size: 1.5rem;
-  color:white;
+  color: white;
 }
 
-.filter-categories-section:hover > ul{
+.filter-categories-section:hover>ul {
   display: flex;
- flex-wrap: wrap;
+  flex-wrap: wrap;
   padding-left: 1rem;
   margin-right: 3px;
 }
-.filter-price-section:hover>ul{
-  display: flex;
-  /* flex-direction: column; */
-  padding-left: 1rem;
-  margin-right: 3px;
 
+.filter-price-section:hover>ul {
+  display: flex;
+  margin: 5px;
 }
 
-.search-bar input{
- padding: 1.1rem;
+.filter-price-section:hover>ul *,
+.filter-categories-section:hover>ul * {
+  padding: 6px;
+}
+
+.search-bar input {
+  padding: 1.1rem;
   border-radius: 7px;
-  background-color: rgba(255, 255, 255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
-.search-bar input:focus{
+
+.search-bar input:focus {
   padding: 1.1rem 2rem;
-   border-radius: 7px;
-   background-color: rgba(255, 255, 255,1);
- }
-::placeholder{
-  padding:1rem;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+::placeholder {
+  padding: 1rem;
   color: black;
 }
+
 /* PRODUCTS  */
 
-.products-wrapper{
+.products-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.products-wrapper .product-img img{
+.products-wrapper .product-img img {
   width: auto;
   height: 30rem;
   padding-bottom: 1rem;
 }
 
-.products-infos h4{
+.products-infos h4 {
   font-size: 2rem;
   font-weight: 300;
   color: --main-black;
@@ -91,7 +99,7 @@
   margin: 2rem auto 2rem 2rem;
 }
 
-#products_grid{
+#products_grid {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -100,50 +108,59 @@
   align-items: baseline;
 }
 
-#products_grid .item-mini{
+#products_grid .item-mini {
   display: flex;
   flex-direction: column;
   min-width: 20rem;
   max-width: 35rem;
-  margin: 5% 5%;
+  margin: 5% 2%;
   font-size: 1.2rem;
   position: relative;
 }
-#products_grid .item-mini:hover>a>div>img{
-    transform: translate(1px, 1px) scale(1.1);
-    opacity: 0.8;
+
+#products_grid .item-mini:hover>a>div>img {
+  transform: translate(1px, 1px) scale(1.1);
+  opacity: 0.8;
 }
-#products_grid .item-mini .product-name{
+
+#products_grid .item-mini .product-name {
   font-size: 1.3rem;
   font-weight: 500;
   padding-bottom: 0.5rem;
 }
 
 
-.product-info .products-rates{
+.product-info .products-rates {
   /* color: red; */
   margin: 0 auto 1% 0;
 }
-@media (max-width:1100px){
-  .filter-section{
+
+@media (max-width:1100px) {
+  .filter-section {
     height: 70vh;
   }
-  .filter-section h1{
+
+  .filter-section h1 {
     font-size: 3rem;
-    margin:2rem;
+    margin: 2rem;
   }
-  .filter-section-wrapper{
-   flex-direction: column;
+
+  .filter-section-wrapper {
+    flex-direction: column;
   }
-  .filter-section-wrapper *{
+
+  .filter-section-wrapper * {
     margin-bottom: 1rem;
   }
 }
-@media (max-width:800px){
-  .filter-section h1{
-    margin:1rem;
+
+@media (max-width:800px) {
+
+  .filter-section h1 {
+    margin: 1rem;
   }
-  .filter-categories-section:hover > ul li{
+
+  .filter-categories-section:hover>ul li {
     width: 20%;
   }
 

@@ -56,7 +56,7 @@
 
 /* button */
 
-.one-product-container button {
+.one-product-container button, .btn-wishlist {
   border: none;
   background: var(--main-green);
   color: #ffffff !important;
@@ -71,9 +71,10 @@
   display: block;
   margin: 1%;
   width: 17rem !important;
+  text-align: center;
 }
 
-.one-product-container button:hover {
+.one-product-container button:hover, .btn-wishlist:hover {
 
   color: var(--main-green) !important;
   font-weight: 700 !important;

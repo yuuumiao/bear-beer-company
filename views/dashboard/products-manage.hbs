@@ -49,11 +49,80 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<br>
+
+
+
+<div class="manage-products-wrapper-table">
+    <h3 class="manage-products-title">Manage your pending orders</h3>
+    <div class="manage-products-wrapper-table">
+        <table class="content-table">
+            <thead>
+                <tr class="table-row">
+                    <th class="table-head" rowspan="2">
+                        <p>Client's full name</p>
+                    </th>
+                    <th class="table-head" rowspan="2">
+                        <p>Adresss</p>
+                    </th>
+                    <th class="table-head" colspan="2">
+                        <p>Order</p>
+                    </th>
+                </tr>
+                <tr class="table-row">
+                    <th class="table-head">
+                        <table>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </table>
+
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each pending}}
+
+                <tr class="table-row">
+                    <td class="table-division">
+                        <p> {{this.user.firstName}} {{this.user.lastName}}</p>
+                    </td>
+
+                    <td class="table-division">
+                        <p>{{this.user.address.street_number}} {{this.user.address.route}},
+                            {{this.user.address.postal_code}}, {{this.user.address.locality}}</p>
+                    </td>
+
+
+                    <td class="table-division">
+                        <table>
+                            {{#each this.cartId}}
+                            <tr>
+                                <th>{{this.productId.name}}</th>
+                                <th>{{this.quantity}}</th>
+                            </tr>
+                            {{/each}}
+                        </table>
+                    </td>
+
+                </tr>
+
+
+                {{/each}}
+
+                {{#unless pending}}
+                <tr>
+                    <td colspan="3">No order yet</td>
+                </tr>
+                {{/unless}}
+
+            </tbody>
+        </table>
+
+    </div>
 
 </div>
-{{!-- <div class="">
-    <h3>Show pendding orders</h3>
-    {{#each pending}}
-<div>Client name: {{pending.orders}}</div>
-    {{/pending}}
-</div> --}}

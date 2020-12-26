@@ -41,16 +41,21 @@ hbs.registerHelper("average", function (arrayReviews) {
 
 
 //check stock
-hbs.registerHelper("stock", function(qClient, qStock){
-        if(qClient > qStock){
+hbs.registerHelper("stock", function (qClient, qStock) {
+        if (qClient > qStock) {
                 return `<p>Sorry, we have only ${qStock} beers in stocks. Please delete our choice and modify your quantity</p>`
-        }else{
+        } else {
                 return qClient;
         }
 })
 
-//check current windown
-hbs.registerHelper("whatURL", function(a){
-        console.log(a);
-        return "yeahhhhhhhhhhhh"
-})
+// //check current windown
+// hbs.registerHelper("whatURL", function(a){
+//         console.log(a);
+//         return "yeahhhhhhhhhhhh"
+// })
+//check empty value
+hbs.registerHelper('check', function (value) {
+        console.log(value == '')
+        return (value == '') ? false : true;
+});

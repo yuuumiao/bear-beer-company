@@ -1,0 +1,91 @@
+{{!-- <form method="post" action="/user/profile/{{user._id}}" class="form" enctype="multipart/form-data"> --}}
+        <div class="profile-main-container">
+                {{#if user}}
+                <div class="profile-display-isLoggin">
+                        <h1>Hi {{ user.firstName }}!</h1>
+                        <p>Please verify your address before check out</p>
+                        <p class="message">{{message}}</p>
+
+                </div>
+
+                <div class="big-container product-manage-wrapper flexed-item profile-container">
+                        <form method="post" action="/shoppingcart/checkout/checkprofile" class="form">
+                                <h3 class="form-title">Update your user profile</h3>
+
+
+                                <div class="form-item-wrapper flexed-item">
+                                        <label for="firstName" class="label">First Name</label>
+                                        <input id="firstName" type="text" class="input" value="{{user.firstName}}"
+                                                name="firstName">
+                                </div>
+
+                                <div class="form-item-wrapper flexed-item">
+                                        <label for="lastName" class="label">Last Name Name</label>
+                                        <input id="lastName" type="text" class="input" value="{{user.lastName}}"
+                                                name="lastName">
+                                </div>
+
+                                <div class="form-item-wrapper flexed-item">
+                                        <label for="email" class="label">Email address</label>
+                                        <input id="email" type="email" class="input" value="{{user.email}}"
+                                                name="email">
+                                </div>
+
+                                <div id="locationField" class="form-item-wrapper flexed-item">
+                                        <label for="autocoplete" class="label">Your mailing address</label>
+
+                                        <input id="autocomplete" type="input" placeholder="Enter your address"
+                                                onFocus="geolocate()" type="text">
+                                </div>
+
+                                <div class="address" class="form-item-wrapper flexed-item">
+
+                                        <label for="street_number" class="label">Street Number</label>
+                                        <input id="street_number" type="number" class="input" min="0"
+                                                value="{{user.address.street_number}}" name="address.street_number">
+
+                                        <label for="route" class="label">Street</label>
+                                        <input id="route" type="text" class="input" value="{{user.address.route}}"
+                                                name="address.route">
+
+                                        <label for="locality" class="label">City</label>
+                                        <input id="locality" type="text" class="input" value="{{user.address.locality}}"
+                                                name="address.locality">
+
+                                        <label for="administrative_area_level_1" class="label">State</label>
+                                        <input id="administrative_area_level_1" type="text" class="input"
+                                                value="{{user.address.administrative_area_level_1}}"
+                                                name="address.administrative_area_level_1">
+
+                                        <label for="country" class="label">Country</label>
+                                        <input id="country" type="text" class="input" value="{{user.address.country}}"
+                                                name="address.country">
+
+
+                                        <label for="postal_code" class="label">Postcode</label>
+                                        <input id="postal_code" type="text" class="input"
+                                                value="{{user.address.postal_code}}" name="address.postal_code">
+
+                                </div>
+
+                                <div class="form-item-wrapper flexed-item">
+
+                                        <label for="telephone" class="label">Telephone</label>
+                                        <input id="telephone" type="text" class="input"
+                                                value="{{user.address.telephone}}" name="address.telephone">
+
+                                </div>
+                                <button id="profile-container-btn">Update my profile</button>
+                                <br>
+                                <a href="/shoppingcart" class="profile-container-btn">Back to shopping cart</a>
+                                <br>
+                                <a href="/shoppingcart/checkout" id="checkout"
+                                        class="profile-container-btn">Checkout</a>
+
+
+                        </form>
+                </div>
+                {{else}}
+                <p>Still no logged in user, sorry!</p>
+                {{/if}}
+        </div>

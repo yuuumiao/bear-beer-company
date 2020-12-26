@@ -1,8 +1,7 @@
-{{#if user}}
-
-<p>{{message}}</p>
-
 <div class="manage-products-wrapper wishlist-products-wrapper">
+    {{#if user}}
+
+    <p>{{message}}</p>
     <h3 class="manage-products-title">Your wishlist</h3>
     <table class="content-table wishlist-table">
         <thead>
@@ -40,11 +39,11 @@
             </tr>
 
             {{/each}}
-            {{!-- {{#unless !user.wishlists}}
+            {{#unless user.wishlists}}
             <tr class="table-row">
-                <td colspan="4">you havent added any beer to your wishlist yet</td>
+                <td colspan="4">you have not added any beer to your wishlist yet</td>
             </tr>
-            {{/unless}} --}}
+            {{/unless}}
 
 
         </tbody>
@@ -56,3 +55,4 @@
     <p>You need to log in to see your wishlist</p>
     <a href="/auth/login">GO TO MY WISHLIST</a>
     {{/if}}
+</div>
