@@ -35,11 +35,10 @@ function displayProdGrid(products) {
                                 <p class="product-name">${products[i].name}</p>
                                 <p class="product-cat">Category: ${products[i].category}</p>
                                 <p class="product-price">Price: $ ${products[i].price}</p>
-
                                 <p class="product-description">${products[i].description}</p>
                         </div>
         
-                        <p class="product-description">${products[i].description}</p>
+                       
         
                         </a>
                         </div>
@@ -116,7 +115,7 @@ searchInput.addEventListener('input', async () => {
         console.log(states)
         //get matches to current text input
         let products = states.filter(state => {
-                const regex = new RegExp(`^${searchInput.value}`, 'gi');
+                const regex = new RegExp(`${searchInput.value}`, 'gi');
                 // console.log(state.category)
                 return state.name.match(regex);
         });
