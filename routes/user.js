@@ -40,9 +40,9 @@ router.post("/wishlist/product-add/:id", async (req, res, next) => {
 
     const checkDuplicate = await UserModel.findOne({_id:req.session.currentUser._id},{wishlists:1,_id:0});
     const list = checkDuplicate.wishlists;
-    console.log(req.params.id)
+    // console.log(req.params.id)
     if(list.indexOf(req.params.id) ==-1){
-      await UserModel.findByIdAndUpdate(req.session.currentUser._id, { $push: { wishlists: req.params.id } }, { new: true })
+      res.json(await UserModel.findByIdAndUpdate(req.session.currentUser._id, { $push: { wishlists: req.params.id } }, { new: true }));
     }
   } catch (err) {
     next(err);

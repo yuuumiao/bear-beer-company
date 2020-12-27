@@ -58,12 +58,23 @@ router.post("/checkout/checkprofile", async (req, res, next) => {
 
 
 router.post("/:id", async (req, res, next) => {
-        console.log(req.body)
+        const { quantity, productId } = req.body;
+console.log(productId)
         try {
                 if ((await CartModel.find()).length == 0) {
                         res.json(await CartModel.create({ items: [req.body] }));
                 } else {
-                        res.json(await CartModel.updateOne({ $push: { items: req.body } }));
+                        const checkDuplicate = await CartModel.find({"items.productId": productId});
+                        console.log(checkDuplicate)
+                        if (checkDuplicate.length !== 0) {
+                                console.log("here")
+                                res.json(await CartModel.updateOne({"items.productId": productId}, {$inc:{"items.$.quantity":quantity}},{new:true, upsert:true}));
+                               
+                        } else {
+                                console.log("there")
+                                res.json(await CartModel.updateOne({ $push: { items: req.body } }));
+                        }
+
                 }
         } catch (err) {
                 next(err)
