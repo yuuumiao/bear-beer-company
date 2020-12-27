@@ -75,8 +75,8 @@
                     <th class="table-head">
                         <table>
                             <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
+                                <th align="left">Product</th>
+                                <th align="right">Quantity</th>
                             </tr>
                         </table>
 
@@ -102,8 +102,8 @@
                         <table>
                             {{#each this.cartId}}
                             <tr>
-                                <th>{{this.productId.name}}</th>
-                                <th>{{this.quantity}}</th>
+                                <th align="left">{{this.productId.name}}</th>
+                                <th align="right">{{this.quantity}}</th>
                             </tr>
                             {{/each}}
                         </table>
