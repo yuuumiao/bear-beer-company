@@ -1,6 +1,9 @@
 const express = require('express');
+const protectAdminRoute = require('../../middlewares/protectAdminRoute');
 const router = express.Router();
 const BeerModel = require("../../models/Product");
+
+router.use(protectAdminRoute);
 
 router.get("/", async (req, res, next) => {
         try {

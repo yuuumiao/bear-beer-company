@@ -4,8 +4,9 @@ const BeerModel = require("./../../models/Product");
 const UserModel = require("./../../models/User");
 const CartModel = require("./../../models/Cart");
 const PendingModel = require("./../../models/PendingOrder");
+const protectPrivateRoute = require('../../middlewares/protectPrivateRoute');
 
-
+router.use(protectPrivateRoute);
 //Get shopping cart page
 router.get("/", async (req, res, next) => {
         let productsAdded = '';

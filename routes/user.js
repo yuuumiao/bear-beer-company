@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 const UserModel = require("./../models/User");
 const BeerModel = require("./../models/Product");
+const protectPrivateRoute = require('../middlewares/protectPrivateRoute');
 
 /* GET users listing. */
 
-
+router.use(protectPrivateRoute);
 /////// PREFIX:  /user //////////
 
 

@@ -43,6 +43,7 @@ router.post("/product-add", fileUploader.single('image'), async (req, res, next)
   else newBeer.image = req.file.path;
   try {
     await BeerModel.create(newBeer);
+    console.log("lala")
     res.redirect("/dashboard");
   } catch (err) {
     next(err);
